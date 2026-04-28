@@ -1,111 +1,212 @@
-import React from "react";
-import { SectionHeading } from "@/components/SectionHeading";
-import { Button } from "@/components/ui/Button";
+"use client";
 
-export default function ContactPage() {
+import { motion } from 'framer-motion';
+import { Section } from '@/components/Cards';
+import { Mail, Phone, MapPin, Send, Globe, Clock } from 'lucide-react';
+import { useState } from 'react';
+import { staggerTextContainer, staggerTextItem } from '@/utils/animations';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: 'it-consulting',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
+  };
+
   return (
-    <div className="pt-32 pb-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-zinc-50 border border-zinc-200 rounded-[40px] p-16 md:p-24 text-center mb-16 relative overflow-hidden text-[#111111]">
-          <SectionHeading
-            title="Let's Start a Conversation"
-            subtitle="Have a project in mind or just want to learn more about our services? Reach out to us today."
+    <div className="pt-20">
+      {/* Contact Hero */}
+      <div className="hero bg-primary-600 text-white px-6">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/contact/contact_hero.png"
+            alt="Contact Background"
+            className="w-full h-full object-cover brightness-[0.25]"
           />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-primary-900/40 to-secondary/20"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Contact Info */}
-          <div className="lg:col-span-5 bg-zinc-50 border border-zinc-200 rounded-[40px] p-10 md:p-12 text-[#111111] space-y-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
-              <div className="space-y-8">
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-zinc-200 shadow-sm flex items-center justify-center text-primary flex-shrink-0">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                  </div>
-                  <div>
-                    <p className="font-bold mb-1">Our Location</p>
-                    <p className="text-[#555555] text-sm leading-relaxed">404, Cyber Heights, HITEC City, Hyderabad, Telangana 500081, India</p>
-                  </div>
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <Globe className="w-[800px] h-[800px] absolute -right-64 -top-64" />
+        </div>
+        <div className="container-custom relative z-10 text-center mx-auto">
+          <motion.h1
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            variants={staggerTextContainer}
+            className="text-4xl md:text-6xl font-bold mb-6"
+          >
+            {"Let's Start a Conversation".split(" ").map((word, i) => (
+              <motion.span key={i} variants={staggerTextItem} className="inline-block mr-3">
+                {word}
+              </motion.span>
+            ))}
+          </motion.h1>
+          <p className="text-white/80 max-w-2xl mx-auto text-lg">
+            Have a project in mind or just want to learn more about our services? Reach out to us today.
+          </p>
+        </div>
+      </div>
+
+      <Section className="bg-white -mt-16 relative z-20 pb-24 px-6">
+        <div className="flex flex-col lg:flex-row gap-12 bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-100">
+          {/* Contact Info Sidebar */}
+          <div className="lg:w-1/3 bg-secondary p-12 text-white">
+            <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
+            <div className="space-y-8">
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 bg-primary-600/20 text-primary-400 rounded-xl flex items-center justify-center shrink-0">
+                  <MapPin size={24} />
                 </div>
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-zinc-200 shadow-sm flex items-center justify-center text-primary flex-shrink-0">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  </div>
-                  <div>
-                    <p className="font-bold mb-1">Phone Number</p>
-                    <p className="text-[#555555] text-sm">+91 98765 43210</p>
-                  </div>
+                <div>
+                  <h4 className="font-bold mb-1">Our Location</h4>
+                  <p className="text-gray-400 text-sm">404, Cyber Heights, HITEC City, Hyderabad, Telangana 500081, India</p>
                 </div>
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-zinc-200 shadow-sm flex items-center justify-center text-primary flex-shrink-0">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                  </div>
-                  <div>
-                    <p className="font-bold mb-1">Email Address</p>
-                    <p className="text-[#555555] text-sm">contact@net-md.com</p>
-                  </div>
+              </div>
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 bg-primary-600/20 text-primary-400 rounded-xl flex items-center justify-center shrink-0">
+                  <Phone size={24} />
                 </div>
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-zinc-200 shadow-sm flex items-center justify-center text-primary flex-shrink-0">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  </div>
-                  <div>
-                    <p className="font-bold mb-1">Working Hours</p>
-                    <p className="text-[#555555] text-sm">Mon - Fri: 9:00 AM - 6:00 PM</p>
-                  </div>
+                <div>
+                  <h4 className="font-bold mb-1">Phone Number</h4>
+                  <p className="text-gray-400 text-sm">+91 98765 43210</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 bg-primary-600/20 text-primary-400 rounded-xl flex items-center justify-center shrink-0">
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold mb-1">Email Address</h4>
+                  <p className="text-gray-400 text-sm">contact@net-md.com</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 bg-primary-600/20 text-primary-400 rounded-xl flex items-center justify-center shrink-0">
+                  <Clock size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold mb-1">Working Hours</h4>
+                  <p className="text-gray-400 text-sm">Mon - Fri: 9:00 AM - 6:00 PM</p>
                 </div>
               </div>
             </div>
 
-            <div>
-              <p className="font-bold mb-6">Follow Us</p>
+            <div className="mt-16">
+              <h4 className="font-bold mb-6">Follow Us</h4>
               <div className="flex gap-4">
-                {["fb", "tw", "li", "ig"].map((social) => (
-                  <div key={social} className="w-10 h-10 rounded-lg bg-white border border-zinc-200 shadow-sm flex items-center justify-center hover:bg-zinc-50 transition-all text-xs font-bold uppercase cursor-pointer">
+                {['FB', 'TW', 'LI', 'IG'].map((social) => (
+                  <a key={social} href="#" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary-600 transition-all font-bold text-xs">
                     {social}
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Form */}
-          <div className="lg:col-span-7 bg-white rounded-[40px] p-10 md:p-16 shadow-xl border border-zinc-100">
-            <form className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Full Name</label>
-                  <input type="text" placeholder="Arjun Sharma" className="w-full px-6 py-4 rounded-xl border border-border focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" />
+          {/* Form Area */}
+          <div className="flex-1 p-12">
+            {submitted ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="h-full flex flex-col items-center justify-center text-center space-y-6"
+              >
+                <div className="w-20 h-20 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center">
+                  <Send size={40} />
+                </div>
+                <h3 className="text-3xl font-bold text-secondary">Message Sent!</h3>
+                <p className="text-gray-600 max-w-md">
+                  Thank you for reaching out to Net-MD. We&apos;ve received your inquiry and will get back to you within 24 hours.
+                </p>
+                <button onClick={() => setSubmitted(false)} className="btn-secondary">Send Another Message</button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-secondary">Full Name</label>
+                    <input
+                      required
+                      type="text"
+                      placeholder="Arjun Sharma"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-secondary">Email Address</label>
+                    <input
+                      required
+                      type="email"
+                      placeholder="arjun@example.com"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
+                  </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Email Address</label>
-                  <input type="email" placeholder="arjun@example.com" className="w-full px-6 py-4 rounded-xl border border-border focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" />
+                  <label className="text-sm font-bold text-secondary">Interested Service</label>
+                  <select
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  >
+                    <option value="it-consulting">IT Consulting</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="cloud-solutions">Cloud Solutions</option>
+                    <option value="cyber-security">Cyber Security</option>
+                    <option value="other">Other Inquiry</option>
+                  </select>
                 </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-foreground">Interested Service</label>
-                <select className="w-full px-6 py-4 rounded-xl border border-border focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-white">
-                  <option>IT Consulting</option>
-                  <option>Cloud Solutions</option>
-                  <option>Web Development</option>
-                  <option>SEO Optimization</option>
-                </select>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-foreground">Your Message</label>
-                <textarea rows={5} placeholder="Tell us about your project..." className="w-full px-6 py-4 rounded-xl border border-border focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"></textarea>
-              </div>
-
-              <Button className="w-full py-5 text-lg shadow-2xl shadow-primary/30">
-                Send Message <span>🚀</span>
-              </Button>
-            </form>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-secondary">Your Message</label>
+                  <textarea
+                    required
+                    rows={5}
+                    placeholder="Tell us about your project..."
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all resize-none"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  ></textarea>
+                </div>
+                <button type="submit" className="btn-primary w-full py-4 text-lg">
+                  Send Message <Send size={20} />
+                </button>
+              </form>
+            )}
           </div>
         </div>
-      </div>
+      </Section>
+
+      {/* Map Placeholder */}
+      <Section className="bg-off-white pb-24 px-6">
+        <div className="rounded-[2rem] overflow-hidden grayscale opacity-80 h-96 border border-gray-200 relative group">
+          <div className="absolute inset-0 bg-primary-600/10 group-hover:opacity-0 transition-opacity z-10"></div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.827222627!2d78.379!3d17.448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5ec439%3A0x6c6e7f8e8f8f8f8f!2sCyber%20Heights!5e0!3m2!1sen!2sin!4v1634725354000!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </Section>
     </div>
   );
-}
+};
+
+export default Contact;

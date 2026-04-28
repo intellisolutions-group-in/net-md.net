@@ -1,0 +1,13 @@
+@echo off
+ren "d:\Net_Md\src\assets\services\it-consulting\card.png" "card.jpg"
+ren "d:\Net_Md\src\assets\services\it-consulting\hero.png" "hero.jpg"
+ren "d:\Net_Md\src\assets\services\cloud-solutions\card.png" "card.jpg"
+ren "d:\Net_Md\src\assets\services\cloud-solutions\hero.png" "hero.jpg"
+ren "d:\Net_Md\src\assets\services\web-development\card.png" "card.jpg"
+ren "d:\Net_Md\src\assets\services\web-development\hero.png" "hero.jpg"
+ren "d:\Net_Md\src\assets\services\seo-optimization\card.png" "card.jpg"
+ren "d:\Net_Md\src\assets\services\seo-optimization\hero.png" "hero.jpg"
+ren "d:\Net_Md\src\assets\services\social-media-marketing\card.png" "card.jpg"
+ren "d:\Net_Md\src\assets\services\social-media-marketing\hero.png" "hero.jpg"
+ren "d:\Net_Md\src\assets\services\api-integration\card.png" "card.jpg"
+ren "d:\Net_Md\src\assets\services\api-integration\hero.png" "hero.jpg"

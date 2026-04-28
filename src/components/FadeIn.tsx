@@ -29,20 +29,20 @@ export const FadeIn = ({
 
   return (
     <motion.div
-      initial={{ 
-        opacity: 0, 
+      initial={{
+        opacity: 0,
         y: directionOffset,
-        x: xOffset 
+        x: xOffset
       }}
-      whileInView={{ 
-        opacity: 1, 
+      whileInView={{
+        opacity: 1,
         y: 0,
-        x: 0 
+        x: 0
       }}
       viewport={{ once, margin: "-100px" }}
-      transition={{ 
-        duration, 
-        delay, 
+      transition={{
+        duration,
+        delay,
         ease: [0.33, 1, 0.68, 1], // ease-in-out premium feel
         staggerChildren: stagger ? 0.1 : 0
       }}
@@ -75,13 +75,14 @@ export const FadeInStagger = ({ children, delay = 0, className }: { children: Re
   );
 };
 
-export const FadeInItem = ({ children, y = 20 }: { children: React.ReactNode, y?: number }) => {
+export const FadeInItem = ({ children, y = 20, className }: { children: React.ReactNode, y?: number, className?: string }) => {
   return (
     <motion.div
+      className={className}
       variants={{
         hidden: { opacity: 0, y },
-        show: { 
-          opacity: 1, 
+        show: {
+          opacity: 1,
           y: 0,
           transition: {
             duration: 0.8,

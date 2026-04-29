@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageSquare, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
-import { staggerTextContainer, staggerTextItem } from '@/utils/animations';
+import { staggerTextContainer, staggerTextItem } from '../../utils/animations';
 
 export const AboutHero = () => {
   const scrollToContent = () => {

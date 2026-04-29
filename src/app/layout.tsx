@@ -20,6 +20,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Net-MD | Premium IT Services & Solutions",
   description: "Transforming ideas into digital reality with premium IT services and innovative solutions for global enterprises.",
+  icons: {
+    icon: "/images/fav.png",
+    apple: "/images/fav.png",
+  }
 };
 
 

@@ -11,7 +11,7 @@ import {
   FaqItem,
   ProjectCard
 } from '@/components/Cards';
-import { staggerTextContainer, staggerTextItem } from '@/utils/animations';
+import { staggerTextContainer, staggerTextItem } from '../utils/animations';
 import {
   Shield,
   Cloud,

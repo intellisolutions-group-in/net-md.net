@@ -15,10 +15,26 @@ const Contact = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const formDataInstance = new FormData(form);
+    const data = Object.fromEntries(formDataInstance);
+
+    const submissions = JSON.parse(localStorage.getItem("allFormSubmissions") || "[]");
+    submissions.push({
+      id: Date.now(),
+      formType: "Contact Form",
+      data,
+      submittedAt: new Date().toISOString()
+    });
+    localStorage.setItem("allFormSubmissions", JSON.stringify(submissions));
+
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: '', email: '', service: 'it-consulting', message: '' });
+    }, 5000);
   };
 
   return (
@@ -125,11 +141,10 @@ const Contact = () => {
                 <div className="w-20 h-20 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center">
                   <Send size={40} />
                 </div>
-                <h3 className="text-3xl font-bold text-secondary">Message Sent!</h3>
+                <h3 className="text-3xl font-bold text-secondary">✅ Form submitted successfully</h3>
                 <p className="text-gray-600 max-w-md">
                   Thank you for reaching out to Net-MD. We&apos;ve received your inquiry and will get back to you within 24 hours.
                 </p>
-                <button onClick={() => setSubmitted(false)} className="btn-secondary">Send Another Message</button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -139,6 +154,7 @@ const Contact = () => {
                     <input
                       required
                       type="text"
+                      name="name"
                       placeholder="Arjun Sharma"
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
                       value={formData.name}
@@ -150,6 +166,7 @@ const Contact = () => {
                     <input
                       required
                       type="email"
+                      name="email"
                       placeholder="arjun@example.com"
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
                       value={formData.email}
@@ -160,6 +177,7 @@ const Contact = () => {
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-secondary">Interested Service</label>
                   <select
+                    name="service"
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
@@ -175,6 +193,7 @@ const Contact = () => {
                   <label className="text-sm font-bold text-secondary">Your Message</label>
                   <textarea
                     required
+                    name="message"
                     rows={5}
                     placeholder="Tell us about your project..."
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all resize-none"

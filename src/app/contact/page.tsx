@@ -118,16 +118,6 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="mt-16">
-              <h4 className="font-bold mb-6">Follow Us</h4>
-              <div className="flex gap-4">
-                {['FB', 'TW', 'LI', 'IG'].map((social) => (
-                  <a key={social} href="#" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary-600 transition-all font-bold text-xs">
-                    {social}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Form Area */}
@@ -210,17 +200,18 @@ const Contact = () => {
         </div>
       </Section>
 
-      {/* Map Placeholder */}
+      {/* Interactive Map */}
       <Section className="bg-off-white pb-24 px-6">
-        <div className="rounded-[2rem] overflow-hidden grayscale opacity-80 h-96 border border-gray-200 relative group">
-          <div className="absolute inset-0 bg-primary-600/10 group-hover:opacity-0 transition-opacity z-10"></div>
+        <div className="rounded-[2rem] overflow-hidden h-[450px] border border-gray-200 relative shadow-xl hover:shadow-2xl transition-shadow duration-500">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.827222627!2d78.379!3d17.448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5ec439%3A0x6c6e7f8e8f8f8f8f!2sCyber%20Heights!5e0!3m2!1sen!2sin!4v1634725354000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.299635398246!2d78.376852!3d17.4477196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e250109915%3A0x3344667a4e61066!2sCyber%20Heights!5e0!3m2!1sen!2sin!4v1714392000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Net-MD Office Location"
           ></iframe>
         </div>
       </Section>

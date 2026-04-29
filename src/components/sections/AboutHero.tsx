@@ -61,21 +61,7 @@ export const AboutHero = () => {
               At Net-MD, we help businesses grow through innovative web development, SEO, and digital marketing strategies.
             </p>
 
-            <div className="flex flex-wrap gap-6">
-              <Link
-                href="/contact"
-                className="btn-primary text-lg px-10 py-5 group shadow-xl shadow-primary-900/20"
-              >
-                Get Consultation <MessageSquare className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              </Link>
-
-              <button
-                onClick={scrollToContent}
-                className="btn-secondary !text-white !border-white/30 hover:!border-white hover:!bg-white/10 text-lg px-10 py-5"
-              >
-                Learn More <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
+            {/* Buttons removed per request */}
           </div>
         </div>
       </div>

@@ -73,29 +73,7 @@ const Services = () => {
         </div>
       </Section>
 
-      {/* Final CTA */}
-      <Section className="bg-white">
-        <div className="bg-primary-600 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden mx-6">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white relative z-10">Need a Custom Solution?</h2>
-          <p className="text-white/80 max-w-xl mx-auto mb-10 text-lg relative z-10 leading-relaxed">
-            Our team is ready to build exactly what you need. Let&apos;s discuss your project today and transform your ideas into reality.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 relative z-10">
-            <Link href="/contact" className="bg-white text-primary-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all">
-              Schedule a Discovery Call
-            </Link>
-            <Link
-              href="/contact"
-              className="bg-white/10 border border-white/30 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all inline-flex items-center gap-2"
-            >
-              Chat with Sales <MessageCircle size={20} />
-            </Link>
-          </div>
-        </div>
-      </Section>
     </div>
   );
 };

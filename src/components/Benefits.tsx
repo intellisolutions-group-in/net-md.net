@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Rocket, 
-  BookOpen, 
-  Code2, 
-  Users, 
+import {
+  Rocket,
+  BookOpen,
+  Code2,
+  Users,
   Clock,
   Coffee
 } from 'lucide-react';
@@ -48,7 +48,7 @@ const Benefits = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {benefits.map((item, index) => (
-        <motion.div 
+        <motion.div
           key={index}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

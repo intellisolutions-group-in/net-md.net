@@ -149,10 +149,6 @@ export default function BlogDetailPage() {
               </div>
               <div className="h-8 w-[1px] bg-white/20 hidden md:block" />
               <div className="flex items-center gap-2">
-                <Calendar size={18} className="text-primary-500" />
-                <span>{blog.date}</span>
-              </div>
-              <div className="flex items-center gap-2">
                 <Clock size={18} className="text-primary-500" />
                 <span>6 min read</span>
               </div>
@@ -229,15 +225,6 @@ export default function BlogDetailPage() {
                 </div>
               </div>
 
-              {/* Share/Actions */}
-              <div className="flex items-center gap-4 pt-4">
-                <button className="w-12 h-12 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-secondary hover:bg-primary-600 hover:text-white transition-all shadow-sm">
-                  <Share2 size={20} />
-                </button>
-                <button className="w-12 h-12 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-secondary hover:bg-primary-600 hover:text-white transition-all shadow-sm">
-                  <Bookmark size={20} />
-                </button>
-              </div>
             </div>
           </aside>
 

@@ -28,7 +28,6 @@ export const blogs = [
       { q: "How often should security audits be performed?", a: "Comprehensive security audits should be conducted at least annually, with regular vulnerability scans and penetration testing performed quarterly or whenever significant infrastructure changes occur." }
     ],
     image: "/images/blog/cybersecurity.png",
-    date: "Oct 24, 2023",
     author: "Net-MD Security"
   },
   {
@@ -56,7 +55,6 @@ export const blogs = [
       { q: "How do you measure IT ROI?", a: "IT ROI is measured by comparing the cost of a technology investment against the financial gains or savings it generates, including increased productivity and reduced downtime." }
     ],
     image: "/images/services/it-consulting/card.png",
-    date: "Oct 18, 2023",
     author: "Net-MD Strategy"
   },
   {
@@ -83,7 +81,6 @@ export const blogs = [
       { q: "Is AI marketing ethical?", a: "AI marketing can be ethical if it prioritizes user privacy, ensures transparency in data usage, and avoids biases in its algorithms." }
     ],
     image: "/images/blog/marketing.png",
-    date: "Oct 12, 2023",
     author: "Net-MD Marketing"
   },
   {
@@ -110,7 +107,6 @@ export const blogs = [
       { q: "What are the common migration pitfalls?", a: "Common issues include poor planning, lack of cloud expertise, and failing to account for hidden costs like data egress fees." }
     ],
     image: "/images/blog/cloud.png",
-    date: "Sep 28, 2023",
     author: "Net-MD Cloud Team"
   },
   {
@@ -137,7 +133,6 @@ export const blogs = [
       { q: "How do you handle time zone differences?", a: "By establishing 'overlap hours' for meetings and leaning heavily on asynchronous workflows for the rest of the day." }
     ],
     image: "/images/about/who-we-are.png",
-    date: "Sep 15, 2023",
     author: "Net-MD Operations"
   },
   {
@@ -164,7 +159,6 @@ export const blogs = [
       { q: "How does 5G improve IoT battery life?", a: "5G includes power-saving protocols that allow sensors to stay in a low-power state for longer, only waking up when necessary to transmit data." }
     ],
     image: "/images/contact/contact_hero.png",
-    date: "Sep 05, 2023",
     author: "Net-MD IoT Lab"
   },
   {
@@ -191,7 +185,6 @@ export const blogs = [
       { q: "What industries benefit most from edge computing?", a: "Manufacturing, healthcare, autonomous vehicles, and energy sectors gain the most due to their need for real-time data processing." }
     ],
     image: "/images/services/web-development/card.png",
-    date: "Aug 22, 2023",
     author: "Net-MD Industry 4.0"
   },
   {
@@ -218,7 +211,6 @@ export const blogs = [
       { q: "Why is sustainability important in IT?", a: "The IT sector is a major consumer of electricity. Reducing our digital footprint is essential to meet global climate goals." }
     ],
     image: "/images/services/seo-optimization/card.png",
-    date: "Aug 10, 2023",
     author: "Net-MD Eco Team"
   },
   {
@@ -245,7 +237,6 @@ export const blogs = [
       { q: "Is blockchain secure?", a: "Yes, its decentralized nature and cryptographic verification make it extremely difficult to hack or manipulate." }
     ],
     image: "/images/services/services_hero.png",
-    date: "Jul 28, 2023",
     author: "Net-MD Blockchain"
   },
   {
@@ -272,7 +263,6 @@ export const blogs = [
       { q: "How do you handle AI ethics?", a: "By establishing clear guidelines on data privacy, ensuring transparency in how AI makes decisions, and regularly auditing for bias." }
     ],
     image: "/images/blog/ai-solutions.png",
-    date: "Jul 15, 2023",
     author: "Net-MD AI"
   },
   {
@@ -299,7 +289,6 @@ export const blogs = [
       { q: "Is it only for large companies?", a: "No, digital transformation is essential for businesses of all sizes to remain competitive in the digital age." }
     ],
     image: "/images/about/about_hero.jpg",
-    date: "Jun 30, 2023",
     author: "Net-MD Strategy"
   },
   {
@@ -326,7 +315,6 @@ export const blogs = [
       { q: "When should we scale our SaaS?", a: "Scale when you have proven product-market fit and your current infrastructure is reaching its capacity limits." }
     ],
     image: "/images/blog/blog_hero.png",
-    date: "Jun 12, 2023",
     author: "Net-MD SaaS"
   }
 ];

@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  Mail, 
+import {
+  ArrowRight,
   Search,
   Plus,
   Minus
@@ -12,6 +11,7 @@ import {
 import Link from 'next/link';
 import JobCard from '@/components/JobCard';
 import Benefits from '@/components/Benefits';
+import { staggerTextContainer, staggerTextItem } from '@/utils/animations';
 
 const CareersPage = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -23,23 +23,47 @@ const CareersPage = () => {
       location: "Bhubaneswar / Remote",
       type: "Full-Time",
       slug: "frontend-developer",
-      description: "We are looking for a skilled Frontend Developer who is passionate about building beautiful, high-performance user interfaces using React and modern CSS."
+      description: "Build beautiful, high-performance user interfaces for our web development clients using React and modern CSS."
+    },
+    {
+      title: "IT Strategy Consultant",
+      experience: "5+ Years",
+      location: "Hybrid (Mumbai)",
+      type: "Full-Time",
+      slug: "it-strategy-consultant",
+      description: "Help enterprise clients navigate digital transformation and align their technology roadmap with business goals."
+    },
+    {
+      title: "Cloud Infrastructure Engineer",
+      experience: "3-6 Years",
+      location: "Remote / Hybrid",
+      type: "Full-Time",
+      slug: "cloud-engineer",
+      description: "Architect and manage secure, scalable cloud environments on AWS, Azure, and GCP for our global clients."
+    },
+    {
+      title: "SEO & Content Strategist",
+      experience: "2-4 Years",
+      location: "Remote",
+      type: "Full-Time",
+      slug: "seo-strategist",
+      description: "Drive organic growth and visibility for our clients through technical SEO, keyword research, and data-driven content strategies."
+    },
+    {
+      title: "Social Media Manager",
+      experience: "2+ Years",
+      location: "Bhubaneswar",
+      type: "Full-Time",
+      slug: "social-media-manager",
+      description: "Build brand authority and community engagement through creative social media campaigns and influencer outreach."
     },
     {
       title: "Backend Developer (Node.js)",
       experience: "3-5 Years",
-      location: "Hybrid (Pune)",
-      type: "Full-Time",
-      slug: "backend-developer",
-      description: "Join our core platform team to build scalable microservices, optimize database performance, and architect robust backend solutions."
-    },
-    {
-      title: "Full Stack Developer (MERN)",
-      experience: "1-3 Years",
       location: "Remote",
       type: "Full-Time",
-      slug: "fullstack-developer",
-      description: "A versatile role for someone who loves working across the stack. You'll handle everything from MongoDB schema design to React state management."
+      slug: "backend-developer",
+      description: "Design and implement robust APIs and microservices to connect complex software ecosystems seamlessly."
     },
     {
       title: "UI/UX Designer",
@@ -47,7 +71,7 @@ const CareersPage = () => {
       location: "Bhubaneswar",
       type: "Contract",
       slug: "ui-ux-designer",
-      description: "Create stunning visual designs and intuitive user experiences for our enterprise clients. Proficiency in Figma and design systems is required."
+      description: "Create stunning visual designs and intuitive user experiences for our enterprise clients. Proficiency in Figma is required."
     }
   ];
 
@@ -82,14 +106,14 @@ const CareersPage = () => {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 flex items-center justify-center overflow-hidden bg-secondary">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/careers/hero.png" 
-            alt="Join Our Team" 
+          <img
+            src="/images/careers/hero.png"
+            alt="Join Our Team"
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-secondary/60 via-secondary/80 to-secondary"></div>
         </div>
-        
+
         <div className="container-custom relative z-10 px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -97,7 +121,19 @@ const CareersPage = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-primary-400 font-bold tracking-[0.2em] uppercase text-sm mb-6 block">Careers at Net-MD</span>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">Join Our Team</h1>
+            <motion.h1
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false }}
+              variants={staggerTextContainer}
+              className="text-5xl md:text-7xl font-bold text-white mb-8"
+            >
+              {"Join Our Team".split(" ").map((word, i) => (
+                <motion.span key={i} variants={staggerTextItem} className="inline-block mr-3">
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
               Build real-world IT solutions using modern technologies like React, Node.js, and MongoDB. We're looking for passionate individuals to shape the future of technology.
             </p>
@@ -115,7 +151,19 @@ const CareersPage = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <span className="text-primary-600 font-bold tracking-widest uppercase text-sm">Culture & Growth</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary mt-4 mb-4">Why Work With Us?</h2>
+            <motion.h2 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false }}
+              variants={staggerTextContainer}
+              className="text-4xl md:text-5xl font-bold text-secondary mt-4 mb-4"
+            >
+              {"Why Work With Us?".split(" ").map((word, i) => (
+                <motion.span key={i} variants={staggerTextItem} className="inline-block mr-2">
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h2>
             <div className="w-20 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
           </div>
           <Benefits />
@@ -128,16 +176,28 @@ const CareersPage = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
             <div className="max-w-2xl">
               <span className="text-primary-600 font-bold tracking-widest uppercase text-sm">Opportunities</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-secondary mt-4 mb-4">Current Openings</h2>
+              <motion.h2 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false }}
+                variants={staggerTextContainer}
+                className="text-4xl md:text-5xl font-bold text-secondary mt-4 mb-4"
+              >
+                {"Current Openings".split(" ").map((word, i) => (
+                  <motion.span key={i} variants={staggerTextItem} className="inline-block mr-2">
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.h2>
               <p className="text-gray-600 text-lg">
                 Explore our current job openings and find the perfect role for your next career move.
               </p>
             </div>
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-              <input 
-                type="text" 
-                placeholder="Search for roles..." 
+              <input
+                type="text"
+                placeholder="Search for roles..."
                 className="pl-12 pr-6 py-4 rounded-xl border border-gray-200 focus:border-primary-500 outline-none w-full md:w-80 shadow-sm transition-all"
               />
             </div>
@@ -156,17 +216,29 @@ const CareersPage = () => {
         <div className="container-custom">
           <div className="text-center mb-20">
             <span className="text-primary-600 font-bold tracking-widest uppercase text-sm">The Journey</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary mt-4 mb-4">Our Hiring Process</h2>
+            <motion.h2 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false }}
+              variants={staggerTextContainer}
+              className="text-4xl md:text-5xl font-bold text-secondary mt-4 mb-4"
+            >
+              {"Our Hiring Process".split(" ").map((word, i) => (
+                <motion.span key={i} variants={staggerTextItem} className="inline-block mr-2">
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h2>
             <p className="text-gray-600">A simple and transparent process to help you join our team.</p>
           </div>
 
           <div className="relative">
             {/* Connector Line (Desktop) */}
             <div className="absolute top-12 left-0 w-full h-0.5 bg-gray-100 hidden lg:block"></div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
               {hiringSteps.map((step, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -191,16 +263,28 @@ const CareersPage = () => {
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-16">
             <span className="text-primary-600 font-bold tracking-widest uppercase text-sm">FAQ</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary mt-4 mb-4">Frequently Asked Questions</h2>
+            <motion.h2 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false }}
+              variants={staggerTextContainer}
+              className="text-4xl md:text-5xl font-bold text-secondary mt-4 mb-4"
+            >
+              {"Frequently Asked Questions".split(" ").map((word, i) => (
+                <motion.span key={i} variants={staggerTextItem} className="inline-block mr-2">
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h2>
           </div>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
-                <button 
+                <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-gray-50/50 transition-colors"
                 >
@@ -209,7 +293,7 @@ const CareersPage = () => {
                     {openFaq === index ? <Minus size={24} /> : <Plus size={24} />}
                   </div>
                 </button>
-                <motion.div 
+                <motion.div
                   initial={false}
                   animate={{ height: openFaq === index ? 'auto' : 0, opacity: openFaq === index ? 1 : 0 }}
                   className="overflow-hidden"
@@ -224,24 +308,6 @@ const CareersPage = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="section-padding bg-primary-600 relative overflow-hidden">
-        <div className="container-custom relative z-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Don't see a role that fits?</h2>
-          <p className="text-white/80 text-xl mb-12 max-w-2xl mx-auto">
-            Send us your resume anyway! We're always on the lookout for talented individuals.
-          </p>
-          <div className="flex justify-center">
-            <Link href="/contact" className="bg-white text-primary-700 hover:bg-gray-100 px-12 py-5 rounded-xl font-bold text-lg flex items-center gap-2 transition-all">
-              Submit Resume <Mail size={20} />
-            </Link>
-          </div>
-        </div>
-        
-        {/* Background Decorative Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -ml-48 -mb-48"></div>
-      </section>
     </div>
   );
 };

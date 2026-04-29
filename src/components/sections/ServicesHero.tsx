@@ -62,32 +62,7 @@ export const ServicesHero = () => {
               We offer web development, SEO, and digital marketing services to help your business succeed online.
             </motion.p>
 
-            <div className="flex flex-wrap gap-6">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ delay: 0.6 }}
-              >
-                <Link
-                  href="/contact"
-                  className="btn-primary text-lg px-10 py-5 group shadow-xl shadow-primary-900/20 inline-flex items-center"
-                >
-                  Get Consultation <MessageSquare className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
-                </Link>
-              </motion.div>
-
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ delay: 0.7 }}
-                onClick={scrollToServices}
-                className="btn-secondary !text-white !border-white/30 hover:!border-white hover:!bg-white/10 text-lg px-10 py-5 group"
-              >
-                Explore Services <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </div>
+            {/* Buttons removed per request */}
           </div>
         </div>
       </div>

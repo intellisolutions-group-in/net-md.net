@@ -44,13 +44,13 @@ export const ServiceCard = ({ icon: Icon, title, description, slug }: ServiceCar
 
 interface BlogCardProps {
   image: string;
-  date: string;
   title: string;
   description: string;
   slug: string;
+  date?: string;
 }
 
-export const BlogCard = ({ image, date, title, description, slug }: BlogCardProps) => (
+export const BlogCard = ({ image, title, description, slug }: BlogCardProps) => (
   <motion.div
     whileHover={{ y: -10 }}
     className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full flex flex-col"
@@ -59,7 +59,6 @@ export const BlogCard = ({ image, date, title, description, slug }: BlogCardProp
       <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
     </div>
     <div className="p-8 flex-grow flex flex-col">
-      <span className="text-primary-600 font-bold text-sm uppercase tracking-widest block mb-4">{date}</span>
       <h3 className="text-2xl font-bold mb-4 text-secondary leading-tight">{title}</h3>
       <p className="text-gray-600 leading-relaxed mb-8 line-clamp-2">{description}</p>
       <Link href={`/blog/${slug}`} className="text-secondary font-bold hover:text-primary-600 transition-colors mt-auto flex items-center gap-2">

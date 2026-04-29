@@ -2,11 +2,10 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Upload, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle } from 'lucide-react';
 
 const ApplyForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [fileName, setFileName] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,10 +14,6 @@ const ApplyForm = () => {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
     
-    if (data.resume instanceof File) {
-      data.resume = data.resume.name;
-    }
-
     const submissions = JSON.parse(localStorage.getItem("allFormSubmissions") || "[]");
     const newSubmission = {
       id: Date.now(),
@@ -34,7 +29,6 @@ const ApplyForm = () => {
     setTimeout(() => {
       setIsSubmitted(false);
       form.reset();
-      setFileName("");
     }, 5000);
   };
 
@@ -100,30 +94,6 @@ const ApplyForm = () => {
             placeholder="https://..."
             className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
           />
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Resume Upload (PDF/DOC)</label>
-        <div className="relative group cursor-pointer">
-          <input 
-            required
-            type="file" 
-            name="resume"
-            accept=".pdf,.doc,.docx"
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-            onChange={(e) => {
-              if (e.target.files && e.target.files.length > 0) {
-                setFileName(e.target.files[0].name);
-              }
-            }}
-          />
-          <div className="w-full px-5 py-10 rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 group-hover:border-primary-500 group-hover:bg-primary-50/30 transition-all flex flex-col items-center justify-center gap-3">
-            <Upload className="text-gray-400 group-hover:text-primary-600 transition-colors" size={32} />
-            <span className="text-gray-500 font-medium">
-              {fileName ? fileName : "Click or drag to upload resume"}
-            </span>
-          </div>
         </div>
       </div>
 

@@ -19,30 +19,123 @@
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  /* Typography Scale Tokens - Refined for Futuristic IT vibe */
+  --text-hero: clamp(2.75rem, 9vw, 5.5rem);
+  --text-section: clamp(2.25rem, 5vw, 3.5rem);
+  --text-subtitle: clamp(1.1rem, 2.5vw, 1.75rem);
+  --text-body: 1.125rem;
+  --text-article: clamp(1.125rem, 1.5vw, 1.25rem);
+  --text-small: 0.9375rem;
+  --text-xs: 0.8125rem;
+
+  --letter-spacing-tight: -0.04em;
+  --letter-spacing-normal: -0.01em;
+  --letter-spacing-wide: 0.1em;
+  --letter-spacing-widest: 0.3em;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
   }
 
   body {
     @apply bg-off-white text-secondary font-sans antialiased;
+    line-height: 1.6;
+    letter-spacing: var(--letter-spacing-normal);
+    cursor: none !important;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold;
+    line-height: 1.1;
+    letter-spacing: var(--letter-spacing-tight);
   }
 }
 
-@layer components {
+@layer utilities {
+  /* Typography Semantic Classes - Premium SaaS/IT Vibe */
+  .text-hero {
+    font-size: var(--text-hero);
+    @apply font-display font-bold leading-[1.05] tracking-[-0.04em];
+    text-wrap: balance;
+  }
+
+  .text-section-title {
+    font-size: var(--text-section);
+    @apply font-display font-bold leading-[1.1] tracking-[-0.03em];
+    text-wrap: balance;
+  }
+
+  .text-sub-title {
+    font-size: var(--text-subtitle);
+    @apply font-display font-semibold leading-snug tracking-tight text-gray-400/80;
+    text-wrap: balance;
+  }
+
+  .text-paragraph {
+    font-size: var(--text-body);
+    @apply font-medium leading-relaxed opacity-70;
+    max-width: 70ch;
+  }
+
+  .text-card-title {
+    @apply text-xl md:text-2xl font-bold leading-tight tracking-tight text-secondary group-hover:text-primary-600 transition-colors duration-300;
+  }
+
+  .text-card-description {
+    @apply text-sm md:text-base leading-relaxed font-medium opacity-60;
+    line-height: 1.7;
+  }
+
+  .text-label {
+    @apply text-[9px] md:text-[11px] font-black tracking-[0.3em] text-primary-600 uppercase;
+  }
+
+  .form-label {
+    @apply text-[10px] font-black tracking-[0.2em] text-secondary/60 uppercase block mb-3;
+  }
+
+  .form-input {
+    @apply w-full px-6 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 outline-none font-bold text-secondary placeholder:text-gray-300 transition-all duration-500 hover:border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10;
+  }
+
+  .text-stat-number {
+    font-size: clamp(3rem, 10vw, 5rem);
+    @apply font-display font-bold tracking-[-0.05em] leading-none;
+  }
+
+  .text-nav-link {
+    @apply text-[11px] font-black tracking-[0.2em] text-secondary hover:text-primary-600 transition-all duration-300 uppercase;
+  }
+
+  .text-footer-link {
+    @apply text-base md:text-lg font-bold text-gray-400 hover:text-primary-500 transition-all duration-300;
+  }
+
+  /* Article Specific Typography - Blog Details */
+  .text-article-heading {
+    @apply text-3xl md:text-5xl font-display font-bold leading-[1.15] tracking-[-0.03em] text-secondary;
+  }
+
+  .text-article-subheading {
+    @apply text-2xl md:text-3xl font-display font-bold leading-tight tracking-tight text-secondary/90;
+  }
+
+  .text-article-body {
+    font-size: var(--text-article);
+    @apply font-medium leading-[1.8] text-gray-600 tracking-[-0.01em];
+    max-width: 75ch;
+  }
+
+  .text-article-quote {
+    @apply text-xl md:text-2xl italic font-display font-medium text-secondary/80 leading-relaxed border-l-4 border-primary-500 pl-8;
+  }
+
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-24;
+    @apply py-20 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24;
   }
 
   .container-custom {
@@ -50,18 +143,12 @@
   }
 
   .btn-primary {
-    @apply bg-primary-600 text-white px-6 py-3 rounded-md font-semibold transition-all duration-300 hover:bg-primary-700 hover:shadow-lg active:scale-95 flex items-center justify-center gap-2;
+    @apply bg-primary-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:bg-primary-700 hover:shadow-xl active:scale-95 flex items-center justify-center gap-2;
+    letter-spacing: -0.01em;
   }
 
   .btn-secondary {
-    @apply bg-transparent border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-md font-semibold transition-all duration-300 hover:bg-primary-50 active:scale-95 flex items-center justify-center gap-2;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl rounded-lg bg-white p-6 shadow-sm;
-  }
-
-  .hero {
-    @apply relative min-h-[90vh] flex items-center pt-20 overflow-hidden;
+    @apply bg-transparent border-2 border-primary-600 text-primary-600 px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:bg-primary-50 active:scale-95 flex items-center justify-center gap-2;
+    letter-spacing: -0.01em;
   }
 }

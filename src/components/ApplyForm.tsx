@@ -1,19 +1,24 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Send, CheckCircle } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Send, CheckCircle, Loader2, Upload } from 'lucide-react';
 
 const ApplyForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
     const form = e.currentTarget;
+    setIsSubmitting(true);
+
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    
+
     const submissions = JSON.parse(localStorage.getItem("allFormSubmissions") || "[]");
     const newSubmission = {
       id: Date.now(),
@@ -21,11 +26,13 @@ const ApplyForm = () => {
       data,
       submittedAt: new Date().toISOString()
     };
-    
+
     submissions.push(newSubmission);
     localStorage.setItem("allFormSubmissions", JSON.stringify(submissions));
-    
+
+    setIsSubmitting(false);
     setIsSubmitted(true);
+
     setTimeout(() => {
       setIsSubmitted(false);
       form.reset();
@@ -34,83 +41,121 @@ const ApplyForm = () => {
 
   if (isSubmitted) {
     return (
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-16 px-8 bg-white rounded-2xl shadow-xl border border-gray-100"
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        className="text-center py-24 px-12 bg-white rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-100"
       >
-        <div className="w-20 h-20 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle size={40} />
-        </div>
-        <h3 className="text-3xl font-bold text-secondary mb-4">✅ Form submitted successfully</h3>
-        <p className="text-gray-600 max-w-md mx-auto mb-8">
-          Thank you for your interest. Our recruitment team will review your profile and get back to you soon.
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 500, damping: 15 }}
+          className="w-24 h-24 bg-primary-50 text-primary-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner"
+        >
+          <CheckCircle size={48} />
+        </motion.div>
+        <h3 className="text-4xl font-bold text-secondary mb-6 tracking-tight">Application Received!</h3>
+        <p className="text-gray-600 max-w-md mx-auto mb-10 text-xl leading-relaxed font-medium opacity-80">
+          Thank you for your interest in joining Net-MD. Our recruitment team will review your profile and reach out within 2-3 business days.
         </p>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setIsSubmitted(false)}
+          className="text-primary-600 font-bold hover:underline"
+        >
+          Submit another application
+        </motion.button>
       </motion.div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Full Name</label>
-          <input 
+    <motion.form
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      onSubmit={handleSubmit}
+      className="space-y-10 bg-white p-8 md:p-14 rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.06)] border border-gray-100 relative overflow-hidden"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Full Name */}
+        <div className="space-y-3">
+          <label className="text-[10px] font-black tracking-[0.2em] text-gray-400 uppercase ml-1">Full Name</label>
+          <input
             required
-            type="text" 
+            type="text"
             name="name"
             placeholder="John Doe"
-            className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+            className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-gray-50/50 outline-none font-bold text-secondary placeholder:text-gray-300 focus:border-primary-500 focus:bg-white transition-all duration-300"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Email Address</label>
-          <input 
+        {/* Email */}
+        <div className="space-y-3">
+          <label className="text-[10px] font-black tracking-[0.2em] text-gray-400 uppercase ml-1">Email Address</label>
+          <input
             required
-            type="email" 
+            type="email"
             name="email"
             placeholder="john@example.com"
-            className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+            className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-gray-50/50 outline-none font-bold text-secondary placeholder:text-gray-300 focus:border-primary-500 focus:bg-white transition-all duration-300"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Phone Number</label>
-          <input 
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Phone */}
+        <div className="space-y-3">
+          <label className="text-[10px] font-black tracking-[0.2em] text-gray-400 uppercase ml-1">Phone Number</label>
+          <input
             required
-            type="tel" 
+            type="tel"
             name="phone"
             placeholder="+91 00000 00000"
-            className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+            className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-gray-50/50 outline-none font-bold text-secondary placeholder:text-gray-300 focus:border-primary-500 focus:bg-white transition-all duration-300"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Portfolio / LinkedIn / GitHub</label>
-          <input 
-            type="url" 
+        {/* Portfolio */}
+        <div className="space-y-3">
+          <label className="text-[10px] font-black tracking-[0.2em] text-gray-400 uppercase ml-1">Portfolio / LinkedIn / Github</label>
+          <input
+            type="url"
             name="portfolio"
             placeholder="https://..."
-            className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+            className="w-full px-6 py-4 rounded-xl border border-gray-100 bg-gray-50/50 outline-none font-bold text-secondary placeholder:text-gray-300 focus:border-primary-500 focus:bg-white transition-all duration-300"
           />
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Message / Cover Letter</label>
-        <textarea 
+      {/* Message */}
+      <div className="space-y-3">
+        <label className="text-[10px] font-black tracking-[0.2em] text-gray-400 uppercase ml-1">Message / Cover Letter</label>
+        <textarea
           name="message"
-          rows={4}
-          placeholder="Tell us why you're a great fit..."
-          className="w-full px-5 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
+          rows={5}
+          placeholder="Tell us why you're a great fit for this role..."
+          className="w-full px-6 py-5 rounded-xl border border-gray-100 bg-gray-50/50 outline-none font-bold text-secondary placeholder:text-gray-300 focus:border-primary-500 focus:bg-white transition-all duration-300 resize-none"
         ></textarea>
       </div>
 
-      <button type="submit" className="btn-primary w-full !py-4 text-lg shadow-xl shadow-primary-900/20 mt-4">
-        Submit Application <Send size={20} />
-      </button>
-    </form>
+      <motion.button
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
+        disabled={isSubmitting}
+        type="submit"
+        className="w-full py-5 bg-primary-600 text-white rounded-xl font-black text-xl flex items-center justify-center gap-3 shadow-xl shadow-primary-600/20 hover:bg-primary-700 transition-all duration-500 disabled:opacity-70 disabled:cursor-not-allowed"
+      >
+        {isSubmitting ? (
+          <>
+            <Loader2 className="animate-spin" size={24} /> Processing...
+          </>
+        ) : (
+          <>
+            Submit Application <Send size={20} />
+          </>
+        )}
+      </motion.button>
+    </motion.form>
   );
 };
 

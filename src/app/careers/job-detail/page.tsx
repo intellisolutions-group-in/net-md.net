@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { 
   ArrowLeft, 
@@ -10,10 +10,15 @@ import {
   CheckCircle2, 
   Share2, 
   Calendar,
-  DollarSign
+  DollarSign,
+  Sparkles,
+  Zap,
+  Globe
 } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import ApplyForm from '@/components/ApplyForm';
+import { MagneticButtonWrapper as MagneticButton } from '@/components/Cards';
 
 const JobDetailContent = () => {
   const searchParams = useSearchParams();
@@ -22,9 +27,9 @@ const JobDetailContent = () => {
   const jobDetails: Record<string, any> = {
     'frontend-developer': {
       title: "Frontend Developer (React)",
-      location: "Remote / On-site / Hybrid",
+      location: "Bhubaneswar / Remote",
       type: "Full-Time",
-      experience: "Fresher / 1+ Year",
+      experience: "2-4 Years",
       salary: "Competitive",
       postedDate: "Recent",
       overview: "We are seeking a talented and motivated Frontend Developer to join our growing engineering team. In this role, you will be responsible for creating high-quality, responsive web applications that provide a seamless user experience.",
@@ -37,44 +42,212 @@ const JobDetailContent = () => {
       ],
       requiredSkills: [
         "Strong proficiency in JavaScript and ES6+.",
-        "Thorough understanding of React.js and its core principles.",
-        "Experience with modern CSS-in-JS or Tailwind CSS.",
-        "Knowledge of modern authorization mechanisms (JWT).",
-        "Familiarity with Git and Agile methodologies."
+        "Thorough understanding of React.js and Next.js.",
+        "Experience with Tailwind CSS.",
+        "Knowledge of modern Auth (JWT/OAuth).",
+        "Familiarity with Git and Agile."
       ],
       preferredSkills: [
         "Experience with TypeScript.",
-        "Familiarity with RESTful APIs and GraphQL.",
-        "Knowledge of Next.js and SSR."
+        "Familiarity with GraphQL.",
+        "Knowledge of SSR/SSG patterns."
       ]
     },
+    'social-media-manager': {
+      title: "Social Media Manager",
+      location: "Bhubaneswar",
+      type: "Full-Time",
+      experience: "2+ Years",
+      salary: "Competitive",
+      postedDate: "2 Days Ago",
+      overview: "We're looking for a creative Social Media Manager to grow our brand presence across all platforms. You'll lead our social strategy and build community engagement.",
+      responsibilities: [
+        "Develop and execute social media strategies.",
+        "Create engaging content (visuals/copy) for LinkedIn, X, and Instagram.",
+        "Monitor social media trends and implement best practices.",
+        "Engage with our community and manage influencer relations.",
+        "Analyze performance metrics and optimize campaigns."
+      ],
+      requiredSkills: [
+        "Proven experience in social media management.",
+        "Excellent copywriting and visual storytelling skills.",
+        "Proficiency with social media tools (Buffer, Hootsuite).",
+        "Deep understanding of social algorithms."
+      ],
+      preferredSkills: [
+        "Basic graphic design skills (Canva/Figma).",
+        "Video editing experience (Reels/Shorts).",
+        "Paid social campaign experience."
+      ]
+    },
+    'it-strategy-consultant': {
+      title: "IT Strategy Consultant",
+      location: "Hybrid (Mumbai)",
+      type: "Full-Time",
+      experience: "5+ Years",
+      salary: "Industry Standard",
+      postedDate: "1 Week Ago",
+      overview: "Help our enterprise clients navigate digital transformation. You will align technology roadmaps with business goals and provide strategic technical leadership.",
+      responsibilities: [
+        "Conduct technical audits and gap analyses for clients.",
+        "Develop long-term digital transformation strategies.",
+        "Advise C-level executives on technology investments.",
+        "Lead cross-functional teams in implementing solutions.",
+        "Identify emerging technology trends relevant to clients."
+      ],
+      requiredSkills: [
+        "Extensive experience in IT consulting or leadership.",
+        "Strong business acumen and analytical skills.",
+        "Excellent presentation and communication skills.",
+        "Understanding of enterprise architecture."
+      ],
+      preferredSkills: [
+        "MBA or equivalent business degree.",
+        "Experience with cloud migration strategies.",
+        "Project management certifications (PMP/Agile)."
+      ]
+    },
+    'cloud-engineer': {
+      title: "Cloud Infrastructure Engineer",
+      location: "Remote / Hybrid",
+      type: "Full-Time",
+      experience: "3-6 Years",
+      salary: "Competitive",
+      postedDate: "Recent",
+      overview: "Architect and manage secure, scalable cloud environments on AWS, Azure, and GCP for our global clients. You will design infrastructure that powers high-availability applications and ensure performance, security, and cost efficiency.",
+      responsibilities: [
+        "Design and deploy cloud infrastructure on AWS, Azure, and GCP.",
+        "Implement CI/CD pipelines and infrastructure-as-code using Terraform or CDK.",
+        "Monitor cloud systems for performance, cost, and security compliance.",
+        "Lead cloud migration projects from on-premise to cloud environments.",
+        "Collaborate with development teams to optimize cloud-native architectures."
+      ],
+      requiredSkills: [
+        "Strong hands-on experience with AWS, Azure, or GCP.",
+        "Proficiency with Terraform, Ansible, or CloudFormation.",
+        "Experience with Docker, Kubernetes, and container orchestration.",
+        "Knowledge of networking, security, and IAM best practices.",
+        "Scripting skills in Bash, Python, or PowerShell."
+      ],
+      preferredSkills: [
+        "AWS/Azure/GCP professional certifications.",
+        "Experience with serverless architectures.",
+        "Familiarity with observability tools (Datadog, Grafana)."
+      ]
+    },
+    'seo-strategist': {
+      title: "SEO & Content Strategist",
+      location: "Remote",
+      type: "Full-Time",
+      experience: "2-4 Years",
+      salary: "Competitive",
+      postedDate: "Recent",
+      overview: "Drive organic growth and visibility for our clients through technical SEO, keyword research, and data-driven content strategies. You will own the end-to-end SEO pipeline from audit to execution.",
+      responsibilities: [
+        "Conduct comprehensive SEO audits and competitor analysis.",
+        "Develop and execute keyword strategies aligned with business objectives.",
+        "Optimize on-page content and technical SEO elements.",
+        "Build high-quality backlink strategies for authority growth.",
+        "Track rankings, traffic, and conversions using Google Analytics and Search Console."
+      ],
+      requiredSkills: [
+        "Proven experience in SEO with measurable results.",
+        "Proficiency with tools like SEMrush, Ahrefs, or Moz.",
+        "Strong understanding of on-page and technical SEO.",
+        "Excellent writing and content planning skills.",
+        "Familiarity with Google Search Console and Analytics."
+      ],
+      preferredSkills: [
+        "Experience with programmatic SEO.",
+        "Basic HTML/CSS knowledge.",
+        "Familiarity with CMS platforms (WordPress, Webflow)."
+      ]
+    },
+    'backend-developer': {
+      title: "Backend Developer (Node.js)",
+      location: "Remote",
+      type: "Full-Time",
+      experience: "3-5 Years",
+      salary: "Competitive",
+      postedDate: "Recent",
+      overview: "Design and implement robust APIs and microservices to connect complex software ecosystems seamlessly. You will work on high-throughput systems that serve enterprise clients globally.",
+      responsibilities: [
+        "Design and build RESTful APIs and GraphQL endpoints.",
+        "Architect scalable microservices using Node.js and Express.",
+        "Integrate third-party services and payment gateways.",
+        "Optimize database queries for PostgreSQL and MongoDB.",
+        "Write clean, tested, and well-documented code."
+      ],
+      requiredSkills: [
+        "Strong proficiency in Node.js and Express.js.",
+        "Experience with SQL (PostgreSQL) and NoSQL (MongoDB) databases.",
+        "Understanding of REST and GraphQL API design principles.",
+        "Experience with authentication patterns (JWT, OAuth2).",
+        "Familiarity with Docker and cloud deployment."
+      ],
+      preferredSkills: [
+        "Experience with message queues (Redis, RabbitMQ).",
+        "Knowledge of TypeScript.",
+        "Familiarity with serverless functions (AWS Lambda)."
+      ]
+    },
+    'ui-ux-designer': {
+      title: "UI/UX Designer",
+      location: "Bhubaneswar",
+      type: "Contract",
+      experience: "2+ Years",
+      salary: "Competitive",
+      postedDate: "Recent",
+      overview: "Create stunning visual designs and intuitive user experiences for our enterprise clients. You will translate business requirements into elegant, user-centered interfaces using Figma.",
+      responsibilities: [
+        "Design user interfaces for web and mobile applications in Figma.",
+        "Conduct user research, usability testing, and analysis.",
+        "Create wireframes, prototypes, and high-fidelity mockups.",
+        "Collaborate with developers to ensure pixel-perfect implementation.",
+        "Build and maintain consistent design systems and component libraries."
+      ],
+      requiredSkills: [
+        "Proficiency in Figma with strong portfolio.",
+        "Understanding of UX principles and human-centered design.",
+        "Experience creating responsive layouts and design systems.",
+        "Strong visual design sense — typography, color, layout.",
+        "Ability to communicate design decisions clearly."
+      ],
+      preferredSkills: [
+        "Experience with motion design and micro-interactions.",
+        "Basic knowledge of HTML/CSS.",
+        "Familiarity with accessibility (WCAG) guidelines."
+      ]
+    }
   };
 
   const job = jobDetails[roleSlug] || jobDetails['frontend-developer'];
 
   return (
-    <div className="pt-32 pb-24 bg-off-white min-h-screen">
-      <div className="container-custom px-6">
+    <div className="bg-[#f8f9fa] min-h-screen selection:bg-primary-600 selection:text-white pt-32 pb-20">
+      <div className="container-custom px-6 mx-auto">
+        {/* Back Link */}
         <Link 
           href="/careers" 
-          className="inline-flex items-center gap-2 text-primary-600 font-bold mb-10 hover:-translate-x-2 transition-transform"
+          className="inline-flex items-center gap-2 text-primary-600 font-bold text-sm mb-12 hover:gap-3 transition-all group"
         >
-          <ArrowLeft size={20} /> Back to Openings
+          <ArrowLeft size={16} /> Back to Openings
         </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            <section className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-10 pb-10 border-b border-gray-100">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left Column: Job Details */}
+          <div className="lg:col-span-8 space-y-12">
+            <div className="bg-white p-10 md:p-16 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-100">
+              {/* Job Header */}
+              <div className="flex justify-between items-start mb-12">
                 <div>
-                  <div className="flex flex-wrap gap-3 mb-4">
-                    <span className="bg-primary-50 text-primary-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                      {job.type}
-                    </span>
-                  </div>
-                  <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-4">{job.title}</h1>
-                  <div className="flex flex-wrap gap-6 text-gray-500 font-medium">
+                  <span className="bg-[#f0fdf4] text-[#16a34a] text-[10px] font-black tracking-widest uppercase px-4 py-2 rounded-lg mb-6 inline-block">
+                    {job.type}
+                  </span>
+                  <h1 className="text-4xl md:text-5xl font-black text-secondary tracking-tighter mb-6">
+                    {job.title}
+                  </h1>
+                  <div className="flex flex-wrap gap-8 text-gray-400 font-bold text-sm">
                     <div className="flex items-center gap-2">
                       <MapPin size={18} className="text-primary-500" />
                       {job.location}
@@ -85,129 +258,122 @@ const JobDetailContent = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <button className="p-3 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors text-gray-500">
-                    <Share2 size={20} />
-                  </button>
-                </div>
+                <button className="p-3 bg-gray-50 rounded-xl text-gray-400 hover:bg-gray-100 transition-colors">
+                  <Share2 size={20} />
+                </button>
               </div>
 
-              <div className="space-y-10">
+              {/* Job Overview */}
+              <div className="space-y-16">
                 <div>
-                  <h3 className="text-2xl font-bold text-secondary mb-6">Job Overview</h3>
+                  <h3 className="text-xl font-black text-secondary mb-6">Job Overview</h3>
                   <p className="text-gray-600 leading-relaxed text-lg">
                     {job.overview}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-bold text-secondary mb-6">Responsibilities</h3>
-                  <ul className="space-y-4">
-                    {job.responsibilities.map((item: string, i: number) => (
-                      <li key={i} className="flex gap-4 text-gray-600 leading-relaxed">
-                        <CheckCircle2 className="text-primary-500 shrink-0 mt-1" size={20} />
-                        {item}
-                      </li>
+                  <h3 className="text-xl font-black text-secondary mb-8">Responsibilities</h3>
+                  <div className="space-y-6">
+                    {job.responsibilities.map((res: string, i: number) => (
+                      <div key={i} className="flex items-start gap-4 group">
+                        <div className="mt-1.5 w-5 h-5 bg-[#f0fdf4] text-[#16a34a] rounded-full flex items-center justify-center shrink-0 border border-green-100">
+                          <CheckCircle2 size={12} />
+                        </div>
+                        <p className="text-gray-600 text-lg">{res}</p>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-bold text-secondary mb-6">Required Skills</h3>
-                  <ul className="space-y-4">
-                    {job.requiredSkills.map((item: string, i: number) => (
-                      <li key={i} className="flex gap-4 text-gray-600 leading-relaxed">
-                        <CheckCircle2 className="text-primary-500 shrink-0 mt-1" size={20} />
-                        {item}
-                      </li>
+                  <h3 className="text-xl font-black text-secondary mb-8">Required Skills</h3>
+                  <div className="space-y-6">
+                    {job.requiredSkills.map((skill: string, i: number) => (
+                      <div key={i} className="flex items-start gap-4 group">
+                        <div className="mt-1.5 w-5 h-5 bg-[#f0fdf4] text-[#16a34a] rounded-full flex items-center justify-center shrink-0 border border-green-100">
+                          <CheckCircle2 size={12} />
+                        </div>
+                        <p className="text-gray-600 text-lg">{skill}</p>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-bold text-secondary mb-6">Preferred Skills</h3>
-                  <ul className="space-y-4">
-                    {job.preferredSkills.map((item: string, i: number) => (
-                      <li key={i} className="flex gap-4 text-gray-600 leading-relaxed">
-                        <CheckCircle2 className="text-primary-500/50 shrink-0 mt-1" size={20} />
-                        {item}
-                      </li>
+                  <h3 className="text-xl font-black text-secondary mb-8">Preferred Skills</h3>
+                  <div className="space-y-6">
+                    {job.preferredSkills.map((skill: string, i: number) => (
+                      <div key={i} className="flex items-start gap-4 group">
+                        <div className="mt-1.5 w-5 h-5 bg-[#f0fdf4] text-[#16a34a] rounded-full flex items-center justify-center shrink-0 border border-green-100">
+                          <CheckCircle2 size={12} />
+                        </div>
+                        <p className="text-gray-600 text-lg">{skill}</p>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
-            </section>
+            </div>
 
-            {/* Apply Form Section */}
-            <section id="apply-now" className="scroll-mt-24">
+            {/* Application Form */}
+            <div id="apply-now" className="scroll-mt-32">
               <div className="mb-10">
-                <h2 className="text-3xl font-bold text-secondary">Apply for this Position</h2>
-                <p className="text-gray-600 mt-2">Please fill out the form below and we'll be in touch soon.</p>
+                <h2 className="text-3xl font-black text-secondary tracking-tight mb-4">Apply for this Position</h2>
+                <p className="text-gray-500 font-medium">Please fill out the form below and we'll be in touch soon.</p>
               </div>
               <ApplyForm />
-            </section>
+            </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-8">
-            <div className="bg-secondary text-white p-8 rounded-2xl shadow-xl sticky top-28">
-              <h3 className="text-2xl font-bold mb-8">Job Summary</h3>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
-                    <Calendar className="text-primary-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Posted Date</p>
-                    <p className="font-bold text-lg">{job.postedDate}</p>
-                  </div>
+          {/* Right Column: Sidebar */}
+          <aside className="lg:col-span-4">
+            <div className="sticky top-32 space-y-8">
+              {/* Job Summary Card */}
+              <div className="bg-[#1a1a1a] p-10 rounded-[2rem] text-white shadow-2xl">
+                <h3 className="text-2xl font-black mb-10 tracking-tight">Job Summary</h3>
+                <div className="space-y-10">
+                  {[
+                    { icon: Calendar, label: "POSTED DATE", value: job.postedDate },
+                    { icon: MapPin, label: "LOCATION", value: job.location },
+                    { icon: Clock, label: "JOB TYPE", value: job.type },
+                    { icon: DollarSign, label: "SALARY RANGE", value: job.salary }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-5">
+                      <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-primary-500 shrink-0 border border-white/5">
+                        <item.icon size={18} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-black text-gray-500 tracking-widest mb-1">{item.label}</p>
+                        <p className="font-bold text-lg">{item.value}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
-                    <MapPin className="text-primary-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Location</p>
-                    <p className="font-bold text-lg">{job.location}</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
-                    <Clock className="text-primary-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Job Type</p>
-                    <p className="font-bold text-lg">{job.type}</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
-                    <DollarSign className="text-primary-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Salary Range</p>
-                    <p className="font-bold text-lg">{job.salary}</p>
-                  </div>
-                </div>
+                
+                <button 
+                  onClick={() => document.getElementById('apply-now')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full mt-12 py-5 bg-white text-secondary rounded-xl font-black text-lg hover:bg-primary-500 hover:text-white transition-all duration-500"
+                >
+                  Apply Now
+                </button>
               </div>
-              <a 
-                href="#apply-now" 
-                className="btn-primary w-full !bg-white !text-secondary hover:!bg-gray-100 !py-4 mt-10 shadow-lg"
-              >
-                Apply Now
-              </a>
-            </div>
 
-            <div className="bg-primary-50 p-8 rounded-2xl border border-primary-100">
-              <h4 className="font-bold text-primary-900 mb-4">Any Questions?</h4>
-              <p className="text-primary-800/70 text-sm mb-6">
-                If you have any questions regarding the recruitment process, feel free to reach out to our HR team.
-              </p>
-              <Link href="/contact" className="text-primary-700 font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                Contact HR <ArrowLeft className="rotate-180" size={16} />
-              </Link>
+              {/* Questions Card */}
+              <div className="bg-[#f0fdf4] p-10 rounded-[2rem] border border-green-100">
+                <h3 className="text-xl font-black text-[#166534] mb-4">Any Questions?</h3>
+                <p className="text-[#166534]/70 font-medium text-sm leading-relaxed mb-8">
+                  If you have any questions regarding the recruitment process, feel free to reach out to our HR team.
+                </p>
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center gap-2 text-[#16a34a] font-black text-sm hover:gap-3 transition-all group"
+                >
+                  Contact HR <ArrowLeft className="rotate-180" size={16} />
+                </Link>
+              </div>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </div>
@@ -223,3 +389,4 @@ const JobDetail = () => {
 };
 
 export default JobDetail;
+

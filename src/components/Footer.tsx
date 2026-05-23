@@ -130,8 +130,6 @@ export const Footer = () => {
             <h4 className="text-label !text-primary-500 mb-6 md:mb-10">Connect</h4>
             <ul className="space-y-6 md:space-y-8">
               {[
-                { icon: MapPin, text: "Global HQ: Hyderabad, TG" },
-                { icon: Phone, text: "+91 40 1234 5678" },
                 { icon: Mail, text: "info@net-md.net" }
               ].map((item, i) => (
                 <motion.li 

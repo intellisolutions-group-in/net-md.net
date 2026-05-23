@@ -150,7 +150,6 @@ const SECTIONS = [
           <div className="space-y-3 text-sm text-gray-300">
             <p><strong className="text-white">Department:</strong> Legal Affairs & Corporate Governance</p>
             <p><strong className="text-white">Email:</strong> info@net-md.net</p>
-            <p><strong className="text-white">HQ:</strong> Cyber Heights, HITEC City, Hyderabad, TG</p>
           </div>
         </div>
       </>

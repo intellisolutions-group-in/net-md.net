@@ -179,7 +179,6 @@ const SECTIONS = [
           <div className="space-y-3 text-sm text-gray-300">
             <p><strong className="text-white">Officer:</strong> Head of Information Security & DPO</p>
             <p><strong className="text-white">Email:</strong> info@net-md.net</p>
-            <p><strong className="text-white">Address:</strong> Net-MD Global Headquarters, Cyber Heights, HITEC City, Hyderabad, TG</p>
           </div>
         </div>
       </>

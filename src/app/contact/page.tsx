@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Section, MagneticButtonWrapper as MagneticButton } from '@/components/Cards';
-import { Mail, Phone, MapPin, Send, Globe, Clock, CheckCircle2, Loader2, Sparkles, Zap } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, CheckCircle2, Loader2 } from 'lucide-react';
 import { useState, useRef } from 'react';
 
 // --- Internal Helper Components ---
@@ -212,22 +212,22 @@ const Contact = () => {
           <div className="absolute inset-0 z-[12] opacity-[0.05] bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         </div>
 
-        <div className="container-custom relative z-20 px-6">
+        <div className="container-custom relative z-20 px-4 md:px-6">
           <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 will-change-transform text-left"
+            className="space-y-6 md:space-y-8 will-change-transform text-left"
           >
-            <span className="text-label !text-primary-400 mb-4 block">
+            <span className="text-label !text-primary-400 mb-2 md:mb-4 block">
               Connect With Us
             </span>
-            <h1 className="text-hero text-white mb-8">
+            <h1 className="text-hero text-white mb-6 md:mb-8">
               Let&apos;s Start a <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 italic">Conversation</span>
             </h1>
-            <p className="text-paragraph !text-gray-400/80 mb-12 !max-w-2xl">
+            <p className="text-paragraph !text-gray-400/80 mb-8 md:mb-12 !max-w-2xl">
               Whether you have a specific project or just a seed of an idea, our experts are ready to help you navigate the digital landscape.
             </p>
           </motion.div>
@@ -235,8 +235,8 @@ const Contact = () => {
         </div>
       </section>
 
-      <Section className="bg-white -mt-24 relative z-30 pb-40">
-        <div className="flex flex-col lg:flex-row gap-0 bg-white rounded-[3rem] shadow-[0_64px_128px_-32px_rgba(0,0,0,0.12)] overflow-hidden border border-gray-100">
+      <Section className="bg-white -mt-12 md:-mt-24 relative z-30 pb-20 md:pb-40 px-4 md:px-6">
+        <div className="flex flex-col lg:flex-row gap-0 bg-white rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)] md:shadow-[0_64px_128px_-32px_rgba(0,0,0,0.12)] overflow-hidden border border-gray-100">
           
           {/* Contact Info Sidebar */}
           <motion.div 
@@ -245,56 +245,42 @@ const Contact = () => {
             viewport={{ once: true }}
             whileHover={{ y: -8 }}
             transition={{ duration: 0.8 }}
-            className="lg:w-2/5 bg-secondary p-16 text-white relative overflow-hidden flex flex-col justify-between will-change-transform"
+            className="lg:w-2/5 bg-secondary p-8 md:p-12 lg:p-16 text-white relative overflow-hidden flex flex-col justify-between will-change-transform"
           >
             {/* Sidebar Background Elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary-600/10 blur-[80px] rounded-full -mr-32 -mt-32"></div>
             
-            <div className="relative z-10 space-y-16">
+            <div className="relative z-10 space-y-12 md:space-y-16">
               <div>
-                <h3 className="text-4xl font-bold mb-6 tracking-tight">Reach Out <br /> <span className="text-primary-500">Directly</span></h3>
-                <p className="text-gray-400 text-lg font-medium leading-relaxed">Our strategists are ready to discuss your next big breakthrough.</p>
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 tracking-tight">Reach Out <br /> <span className="text-primary-500">Directly</span></h3>
+                <p className="text-gray-400 text-base md:text-lg font-medium leading-relaxed">Our strategists are ready to discuss your next big breakthrough.</p>
               </div>
 
-              <div className="space-y-12">
+              <div className="space-y-8 md:space-y-12">
                 {[
-                  { icon: MapPin, title: "Our Headquarters", text: "404, Cyber Heights, HITEC City, Hyderabad" },
-                  { icon: Phone, title: "Give Us a Call", text: "+91 98765 43210" },
-                  { icon: Mail, title: "Send an Email", text: "hello@net-md.com" },
-                  { icon: Clock, title: "Business Hours", text: "Mon - Fri: 9:00 AM - 6:00 PM" }
+                  // { icon: MapPin, title: "Our Headquarters", text: "404, Cyber Heights, HITEC City, Hyderabad" },
+                  // { icon: Phone, title: "Give Us a Call", text: "+91 98765 43210" },
+                  { icon: Mail, title: "Send an Email", text: "info@net-md.net" },
+                  { icon: Clock, title: "Business Hours", text: "Mon - Fri: 10:00 AM - 7:00 PM" }
                 ].map((item, i) => (
                   <motion.div 
                     key={i}
                     whileHover={{ x: 10 }}
-                    className="flex items-start gap-6 group cursor-default will-change-transform"
+                    className="flex items-start gap-4 md:gap-6 group cursor-default will-change-transform"
                   >
-                    <div className="w-14 h-14 bg-white/5 border border-white/10 text-primary-500 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 group-hover:bg-primary-600 group-hover:text-white group-hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 text-primary-500 rounded-xl md:rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 group-hover:bg-primary-600 group-hover:text-white group-hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]">
                       <motion.div
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                         className="will-change-transform"
                       >
-                        <item.icon size={24} />
+                        <item.icon size={20} className="md:w-6 md:h-6" />
                       </motion.div>
                     </div>
                     <div>
-                      <h4 className="font-black text-xs uppercase tracking-[0.2em] text-primary-400/70 mb-1">{item.title}</h4>
-                      <p className="text-white text-lg font-bold group-hover:text-primary-400 transition-colors">{item.text}</p>
+                      <h4 className="font-black text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-400/70 mb-1">{item.title}</h4>
+                      <p className="text-white text-base md:text-lg font-bold group-hover:text-primary-400 transition-colors">{item.text}</p>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <div className="pt-16 border-t border-white/5 relative z-10">
-              <div className="flex gap-6">
-                {[Globe, Sparkles, Zap].map((Icon, i) => (
-                  <motion.div 
-                    key={i}
-                    whileHover={{ y: -5, scale: 1.1 }}
-                    className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary-500 hover:border-primary-500/30 transition-all will-change-transform"
-                  >
-                    <Icon size={20} />
                   </motion.div>
                 ))}
               </div>
@@ -302,7 +288,7 @@ const Contact = () => {
           </motion.div>
 
           {/* Form Area */}
-          <div className="flex-1 p-16 lg:p-24 relative">
+          <div className="flex-1 p-8 md:p-16 lg:p-24 relative">
             <AnimatePresence mode="wait">
               {status === 'success' ? (
                 <motion.div
@@ -312,19 +298,19 @@ const Contact = () => {
                   exit={{ opacity: 0, scale: 0.9, y: -20 }}
                   className="h-full flex flex-col items-center justify-center text-center space-y-10 will-change-transform"
                 >
-                  <div className="w-32 h-32 bg-primary-50 text-primary-600 rounded-[2.5rem] flex items-center justify-center shadow-2xl shadow-primary-600/10 border border-primary-100">
+                  <div className="w-24 h-24 md:w-32 md:h-32 bg-primary-50 text-primary-600 rounded-[2rem] md:rounded-[2.5rem] flex items-center justify-center shadow-2xl shadow-primary-600/10 border border-primary-100">
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 200, damping: 12, delay: 0.2 }}
                       className="will-change-transform"
                     >
-                      <CheckCircle2 size={64} />
+                      <CheckCircle2 size={48} className="md:w-16 md:h-16" />
                     </motion.div>
                   </div>
-                  <div className="space-y-4">
-                    <h3 className="text-4xl font-bold text-secondary tracking-tight">Transmission Received</h3>
-                    <p className="text-gray-500 text-xl font-medium max-w-md leading-relaxed">
+                  <div className="space-y-3 md:space-y-4">
+                    <h3 className="text-3xl md:text-4xl font-bold text-secondary tracking-tight">Transmission Received</h3>
+                    <p className="text-gray-500 text-lg md:text-xl font-medium max-w-md leading-relaxed">
                       Thank you for reaching out. A specialist will review your inquiry and connect with you within 24 hours.
                     </p>
                   </div>
@@ -346,7 +332,7 @@ const Contact = () => {
                   onSubmit={handleSubmit} 
                   className="space-y-12 will-change-transform"
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                     <FormInput
                       label="Your Identity"
                       required
@@ -394,14 +380,14 @@ const Contact = () => {
                     <button 
                       type="submit" 
                       disabled={status === 'loading'}
-                      className="w-full py-6 bg-primary-600 text-white rounded-2xl text-lg font-black uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-secondary transition-all duration-500 shadow-2xl shadow-primary-600/20 group relative overflow-hidden"
+                      className="w-full py-4 md:py-6 bg-primary-600 text-white rounded-xl md:rounded-2xl text-base md:text-lg font-black uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center justify-center gap-3 md:gap-4 hover:bg-secondary transition-all duration-500 shadow-2xl shadow-primary-600/20 group relative overflow-hidden"
                     >
                       
                       {status === 'loading' ? (
-                        <Loader2 className="animate-spin" size={24} />
+                        <Loader2 className="animate-spin w-5 h-5 md:w-6 md:h-6" />
                       ) : (
                         <>
-                          Dispatch Message <Send size={20} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" />
+                          Dispatch Message <Send className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" />
                         </>
                       )}
                     </button>
@@ -413,40 +399,7 @@ const Contact = () => {
         </div>
       </Section>
 
-      {/* Interactive Map */}
-      <Section className="bg-gray-50/50 pb-40 px-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 30 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.01 }}
-          transition={{ duration: 1 }}
-          className="rounded-[3rem] overflow-hidden h-[600px] border border-gray-100 relative shadow-2xl group will-change-transform"
-        >
-          {/* Gradient Overlay Edges */}
-          <div className="absolute inset-0 pointer-events-none z-10 border-[1.5rem] border-white/10 rounded-[3rem]"></div>
-          
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.299635398246!2d78.376852!3d17.4477196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e250109915%3A0x3344667a4e61066!2sCyber%20Heights!5e0!3m2!1sen!2sin!4v1714392000000!5m2!1sen!2sin"
-            width="100%"
-            height="100%"
-            style={{ border: 0, filter: 'grayscale(0.5) contrast(1.2)' }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Net-MD Office Location"
-          ></iframe>
-
-          {/* Map Pulse Overlay (Simulated) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-            <motion.div
-              animate={{ scale: [1, 2, 1], opacity: [0.5, 0, 0.5] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="w-16 h-16 bg-primary-500/30 rounded-full blur-xl will-change-transform"
-            />
-          </div>
-        </motion.div>
-      </Section>
+    
     </div>
   );
 };

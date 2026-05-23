@@ -47,12 +47,6 @@ const CountUp = memo(({ value, suffix = "" }: { value: string; suffix?: string }
 CountUp.displayName = "CountUp";
 
 const About = () => {
-  const team = [
-    { name: "Arjun Sharma", role: "CEO & Founder", image: "/images/team/ceo.png" },
-    { name: "Priya Patel", role: "Chief Technology Officer", image: "/images/team/cto.png" },
-    { name: "Rohan Gupta", role: "Head of Marketing", image: "/images/team/marketing.png" },
-    { name: "Ananya Iyer", role: "Lead Systems Architect", image: "/images/team/architect.png" },
-  ];
 
   const storyRef = useRef(null);
   const { scrollYProgress: storyScroll } = useScroll({
@@ -94,7 +88,7 @@ const About = () => {
                 variants={staggerTextContainer}
                 className="text-section-title mt-4 mb-8 text-secondary"
               >
-                {"Pioneering Digital Excellence Since 2012".split(" ").map((word, i) => (
+                {"Pioneering Digital Excellence".split(" ").map((word, i) => (
                   <motion.span key={i} variants={staggerTextItem} className="inline-block mr-3">
                     {word}
                   </motion.span>
@@ -153,7 +147,7 @@ const About = () => {
               <motion.div 
                 className="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 skew-x-12"
               />
-              <p className="text-6xl font-bold font-display mb-2">12+</p>
+              <p className="text-6xl font-bold font-display mb-2">5+</p>
               <p className="text-label !text-white !opacity-80">Years of Innovation</p>
             </motion.div>
 
@@ -272,47 +266,6 @@ const About = () => {
         </div>
       </Section>
 
-      {/* Team Section */}
-      <Section className="bg-white">
-        <div className="text-center mb-20 px-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1 rounded-full bg-primary-50 text-label mb-4"
-          >
-            The Minds Behind Net-MD
-          </motion.div>
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerTextContainer}
-            className="text-section-title text-secondary"
-          >
-            {"Meet Our Leadership Team".split(" ").map((word, i) => (
-              <motion.span key={i} variants={staggerTextItem} className="inline-block mr-4">
-                {word}
-              </motion.span>
-            ))}
-          </motion.h2>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 px-6">
-          {team.map((member, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="will-change-transform"
-            >
-              <TeamCard {...member} />
-            </motion.div>
-          ))}
-        </div>
-      </Section>
 
       {/* Achievements / Stats Section */}
       <Section className="bg-secondary text-white overflow-hidden relative py-32">
@@ -329,10 +282,10 @@ const About = () => {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center px-6 relative z-10">
           {[
-            { icon: Award, label: "Awards Won", value: "24", suffix: "" },
-            { icon: Users, label: "Happy Clients", value: "450", suffix: "+" },
-            { icon: Globe, label: "Countries Served", value: "15", suffix: "" },
-            { icon: CheckCircle2, label: "Projects Completed", value: "1200", suffix: "+" },
+            { icon: Award, label: "Awards Won", value: "5", suffix: "" },
+            { icon: Users, label: "Happy Clients", value: "100", suffix: "+" },
+            { icon: Globe, label: "Countries Served", value: "3", suffix: "" },
+            { icon: CheckCircle2, label: "Projects Completed", value: "150", suffix: "+" },
           ].map((item, i) => (
             <motion.div 
               key={i}

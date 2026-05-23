@@ -10,7 +10,6 @@ import {
   CheckCircle2, 
   Share2, 
   Calendar,
-  DollarSign,
   Sparkles,
   Zap,
   Globe
@@ -30,7 +29,6 @@ const JobDetailContent = () => {
       location: "Bhubaneswar / Remote",
       type: "Full-Time",
       experience: "2-4 Years",
-      salary: "Competitive",
       postedDate: "Recent",
       overview: "We are seeking a talented and motivated Frontend Developer to join our growing engineering team. In this role, you will be responsible for creating high-quality, responsive web applications that provide a seamless user experience.",
       responsibilities: [
@@ -58,7 +56,6 @@ const JobDetailContent = () => {
       location: "Bhubaneswar",
       type: "Full-Time",
       experience: "2+ Years",
-      salary: "Competitive",
       postedDate: "2 Days Ago",
       overview: "We're looking for a creative Social Media Manager to grow our brand presence across all platforms. You'll lead our social strategy and build community engagement.",
       responsibilities: [
@@ -85,7 +82,6 @@ const JobDetailContent = () => {
       location: "Hybrid (Mumbai)",
       type: "Full-Time",
       experience: "5+ Years",
-      salary: "Industry Standard",
       postedDate: "1 Week Ago",
       overview: "Help our enterprise clients navigate digital transformation. You will align technology roadmaps with business goals and provide strategic technical leadership.",
       responsibilities: [
@@ -104,7 +100,7 @@ const JobDetailContent = () => {
       preferredSkills: [
         "MBA or equivalent business degree.",
         "Experience with cloud migration strategies.",
-        "Project management certifications (PMP/Agile)."
+        "Project management frameworks (Agile/Scrum)."
       ]
     },
     'cloud-engineer': {
@@ -112,7 +108,6 @@ const JobDetailContent = () => {
       location: "Remote / Hybrid",
       type: "Full-Time",
       experience: "3-6 Years",
-      salary: "Competitive",
       postedDate: "Recent",
       overview: "Architect and manage secure, scalable cloud environments on AWS, Azure, and GCP for our global clients. You will design infrastructure that powers high-availability applications and ensure performance, security, and cost efficiency.",
       responsibilities: [
@@ -130,7 +125,7 @@ const JobDetailContent = () => {
         "Scripting skills in Bash, Python, or PowerShell."
       ],
       preferredSkills: [
-        "AWS/Azure/GCP professional certifications.",
+        "Deep expertise in AWS/Azure/GCP.",
         "Experience with serverless architectures.",
         "Familiarity with observability tools (Datadog, Grafana)."
       ]
@@ -140,7 +135,6 @@ const JobDetailContent = () => {
       location: "Remote",
       type: "Full-Time",
       experience: "2-4 Years",
-      salary: "Competitive",
       postedDate: "Recent",
       overview: "Drive organic growth and visibility for our clients through technical SEO, keyword research, and data-driven content strategies. You will own the end-to-end SEO pipeline from audit to execution.",
       responsibilities: [
@@ -168,7 +162,6 @@ const JobDetailContent = () => {
       location: "Remote",
       type: "Full-Time",
       experience: "3-5 Years",
-      salary: "Competitive",
       postedDate: "Recent",
       overview: "Design and implement robust APIs and microservices to connect complex software ecosystems seamlessly. You will work on high-throughput systems that serve enterprise clients globally.",
       responsibilities: [
@@ -196,7 +189,6 @@ const JobDetailContent = () => {
       location: "Bhubaneswar",
       type: "Contract",
       experience: "2+ Years",
-      salary: "Competitive",
       postedDate: "Recent",
       overview: "Create stunning visual designs and intuitive user experiences for our enterprise clients. You will translate business requirements into elegant, user-centered interfaces using Figma.",
       responsibilities: [
@@ -336,8 +328,7 @@ const JobDetailContent = () => {
                   {[
                     { icon: Calendar, label: "POSTED DATE", value: job.postedDate },
                     { icon: MapPin, label: "LOCATION", value: job.location },
-                    { icon: Clock, label: "JOB TYPE", value: job.type },
-                    { icon: DollarSign, label: "SALARY RANGE", value: job.salary }
+                    { icon: Clock, label: "JOB TYPE", value: job.type }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-5">
                       <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-primary-500 shrink-0 border border-white/5">

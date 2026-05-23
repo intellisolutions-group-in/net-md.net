@@ -28,7 +28,7 @@ export const blogs = [
       { q: "How often should security audits be performed?", a: "Comprehensive security audits should be conducted at least annually, with regular vulnerability scans and penetration testing performed quarterly or whenever significant infrastructure changes occur." }
     ],
     image: "/images/blog/cybersecurity.png",
-    author: "Net-MD Security"
+    author: "A. Kumar"
   },
   {
     id: "2",
@@ -55,7 +55,7 @@ export const blogs = [
       { q: "How do you measure IT ROI?", a: "IT ROI is measured by comparing the cost of a technology investment against the financial gains or savings it generates, including increased productivity and reduced downtime." }
     ],
     image: "/images/services/it-consulting/card.png",
-    author: "Net-MD Strategy"
+    author: "P. Sharma"
   },
   {
     id: "3",
@@ -81,7 +81,7 @@ export const blogs = [
       { q: "Is AI marketing ethical?", a: "AI marketing can be ethical if it prioritizes user privacy, ensures transparency in data usage, and avoids biases in its algorithms." }
     ],
     image: "/images/blog/marketing.png",
-    author: "Net-MD Marketing"
+    author: "R. Gupta"
   },
   {
     id: "4",
@@ -107,7 +107,7 @@ export const blogs = [
       { q: "What are the common migration pitfalls?", a: "Common issues include poor planning, lack of cloud expertise, and failing to account for hidden costs like data egress fees." }
     ],
     image: "/images/blog/cloud.png",
-    author: "Net-MD Cloud Team"
+    author: "S. Patel"
   },
   {
     id: "5",
@@ -133,7 +133,7 @@ export const blogs = [
       { q: "How do you handle time zone differences?", a: "By establishing 'overlap hours' for meetings and leaning heavily on asynchronous workflows for the rest of the day." }
     ],
     image: "/images/about/who-we-are.png",
-    author: "Net-MD Operations"
+    author: "V. Singh"
   },
   {
     id: "6",
@@ -159,7 +159,7 @@ export const blogs = [
       { q: "How does 5G improve IoT battery life?", a: "5G includes power-saving protocols that allow sensors to stay in a low-power state for longer, only waking up when necessary to transmit data." }
     ],
     image: "/images/contact/contact_hero.png",
-    author: "Net-MD IoT Lab"
+    author: "M. Joshi"
   },
   {
     id: "7",
@@ -185,7 +185,7 @@ export const blogs = [
       { q: "What industries benefit most from edge computing?", a: "Manufacturing, healthcare, autonomous vehicles, and energy sectors gain the most due to their need for real-time data processing." }
     ],
     image: "/images/services/web-development/card.png",
-    author: "Net-MD Industry 4.0"
+    author: "K. Reddy"
   },
   {
     id: "8",
@@ -211,7 +211,7 @@ export const blogs = [
       { q: "Why is sustainability important in IT?", a: "The IT sector is a major consumer of electricity. Reducing our digital footprint is essential to meet global climate goals." }
     ],
     image: "/images/services/seo-optimization/card.png",
-    author: "Net-MD Eco Team"
+    author: "N. Desai"
   },
   {
     id: "9",
@@ -237,7 +237,7 @@ export const blogs = [
       { q: "Is blockchain secure?", a: "Yes, its decentralized nature and cryptographic verification make it extremely difficult to hack or manipulate." }
     ],
     image: "/images/services/services_hero.png",
-    author: "Net-MD Blockchain"
+    author: "T. Iyer"
   },
   {
     id: "10",
@@ -263,7 +263,7 @@ export const blogs = [
       { q: "How do you handle AI ethics?", a: "By establishing clear guidelines on data privacy, ensuring transparency in how AI makes decisions, and regularly auditing for bias." }
     ],
     image: "/images/blog/ai-solutions.png",
-    author: "Net-MD AI"
+    author: "A. Verma"
   },
   {
     id: "11",
@@ -289,7 +289,7 @@ export const blogs = [
       { q: "Is it only for large companies?", a: "No, digital transformation is essential for businesses of all sizes to remain competitive in the digital age." }
     ],
     image: "/images/about/about_hero.jpg",
-    author: "Net-MD Strategy"
+    author: "P. Sharma"
   },
   {
     id: "12",
@@ -315,6 +315,6 @@ export const blogs = [
       { q: "When should we scale our SaaS?", a: "Scale when you have proven product-market fit and your current infrastructure is reaching its capacity limits." }
     ],
     image: "/images/blog/blog_hero.png",
-    author: "Net-MD SaaS"
+    author: "D. Mehta"
   }
 ];

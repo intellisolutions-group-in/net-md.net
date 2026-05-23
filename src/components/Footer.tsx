@@ -8,7 +8,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-white pt-32 pb-12 overflow-hidden relative">
+    <footer className="bg-secondary text-white pt-16 md:pt-32 pb-8 md:pb-12 overflow-hidden relative">
       {/* Background Animated Gradients */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -39,13 +39,13 @@ export const Footer = () => {
         className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent z-10"
       />
 
-      <div className="container-custom mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-32">
+      <div className="container-custom mx-auto px-4 md:px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-32">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-6 md:space-y-10"
           >
             <Link href="/" className="flex items-center gap-3 group">
               <motion.div 
@@ -70,8 +70,8 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h4 className="text-label !text-primary-500 mb-10">Explore</h4>
-            <ul className="space-y-6">
+            <h4 className="text-label !text-primary-500 mb-6 md:mb-10">Explore</h4>
+            <ul className="space-y-4 md:space-y-6">
               {[
                 { label: 'Home', href: '/' },
                 { label: 'About', href: '/about' },
@@ -99,8 +99,8 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h4 className="text-label !text-primary-500 mb-10">Expertise</h4>
-            <ul className="space-y-6">
+            <h4 className="text-label !text-primary-500 mb-6 md:mb-10">Expertise</h4>
+            <ul className="space-y-4 md:space-y-6">
               {[
                 { name: 'IT Strategy', slug: 'it-consulting' },
                 { name: 'Cloud Ops', slug: 'cloud-solutions' },
@@ -127,17 +127,17 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h4 className="text-label !text-primary-500 mb-10">Connect</h4>
-            <ul className="space-y-8">
+            <h4 className="text-label !text-primary-500 mb-6 md:mb-10">Connect</h4>
+            <ul className="space-y-6 md:space-y-8">
               {[
                 { icon: MapPin, text: "Global HQ: Hyderabad, TG" },
                 { icon: Phone, text: "+91 40 1234 5678" },
-                { icon: Mail, text: "hello@net-md.com" }
+                { icon: Mail, text: "info@net-md.net" }
               ].map((item, i) => (
                 <motion.li 
                   key={i}
                   whileHover={{ x: 10 }}
-                  className="flex gap-6 group cursor-pointer"
+                  className="flex gap-4 md:gap-6 group cursor-pointer"
                 >
                   <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary-500 shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 border border-white/10 shadow-lg">
                     <item.icon size={20} />
@@ -157,14 +157,14 @@ export const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-10"
+          className="border-t border-white/5 pt-8 md:pt-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10 text-center md:text-left"
         >
-          <p className="text-gray-500 text-sm font-bold uppercase tracking-[0.1em]">
+          <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-[0.1em]">
             © {currentYear} Net-MD Solutions. Crafted for the future.
           </p>
-          <div className="flex gap-10 text-sm font-bold uppercase tracking-[0.1em]">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-xs md:text-sm font-bold uppercase tracking-[0.1em]">
             {['Privacy', 'Legal', 'Governance'].map((text) => (
-              <Link key={text} href="#" className="text-gray-500 hover:text-primary-500 transition-colors relative group">
+              <Link key={text} href={`/${text.toLowerCase()}`} className="text-gray-500 hover:text-primary-500 transition-colors relative group">
                 {text}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary-500 group-hover:w-full transition-all duration-300" />
               </Link>

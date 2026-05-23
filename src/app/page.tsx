@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, memo } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ArrowRight, Zap, Rocket, Globe, Shield, Cloud, BarChart, Code, Search, Layers, TrendingUp, Award, Building2, HeartPulse, ShoppingBag, GraduationCap, CheckCircle2, Calendar, MessageSquare, Plus } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Zap, Rocket, Globe, Shield, Cloud, BarChart, Code, Search, Layers, TrendingUp, Award, Building2, HeartPulse, ShoppingBag, GraduationCap, CheckCircle2, Calendar, MessageSquare, Plus, Users } from 'lucide-react';
 import {
   Section,
   ServiceCard,
@@ -56,10 +56,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { value: "500", label: "Projects Completed", suffix: "+" },
-    { value: "250", label: "Happy Clients", suffix: "+" },
-    { value: "12", label: "Years Experience", suffix: "+" },
-    { value: "50", label: "Tech Experts", suffix: "+" },
+    { value: "24", label: "Awards Won", suffix: "" },
+    { value: "450", label: "Happy Clients", suffix: "+" },
+    { value: "15", label: "Countries Served", suffix: "" },
+    { value: "1200", label: "Projects Completed", suffix: "+" },
   ];
 
   const processSteps = [
@@ -70,12 +70,12 @@ const Home = () => {
   ];
 
   const testimonials = [
-    { quote: "Net-MD transformed our digital presence. Their cloud solutions scaled our operations by 200% within six months.", author: "Rajesh Varma", role: "CTO, TechFlow India" },
-    { quote: "The best IT consulting partner we've ever worked with. Their strategic approach saved us thousands in overhead.", author: "Sneha Kapoor", role: "CEO, Innovate Solutions" },
-    { quote: "Highly professional team. Their SEO strategies moved us to the first page for our most competitive keywords.", author: "Vikram Singh", role: "Marketing Director, GlobalX" },
-    { quote: "Exceptional service and support. Their web development team delivered a high-performance app ahead of schedule.", author: "Ananya Iyer", role: "Product Manager, StartupScale" },
-    { quote: "Their API integration solutions streamlined our entire internal process. A game-changer for our efficiency.", author: "Amit Patel", role: "Operations Head, LogisticsPro" },
-    { quote: "Net-MD provided incredible insight into our cybersecurity needs. We feel much more secure after their audit.", author: "Priya Sharma", role: "IT Manager, SecureBank" }
+    { quote: "Net-MD transformed our digital presence. Their cloud solutions scaled our operations by 200% within six months.", author: "Rajesh Varma", role: "CTO" },
+    { quote: "The best IT consulting partner we've ever worked with. Their strategic approach saved us thousands in overhead.", author: "Sneha Kapoor", role: "CEO" },
+    { quote: "Highly professional team. Their SEO strategies moved us to the first page for our most competitive keywords.", author: "Vikram Singh", role: "Marketing Director" },
+    { quote: "Exceptional service and support. Their web development team delivered a high-performance app ahead of schedule.", author: "Ananya Iyer", role: "Product Manager" },
+    { quote: "Their API integration solutions streamlined our entire internal process. A game-changer for our efficiency.", author: "Amit Patel", role: "Operations Head" },
+    { quote: "Net-MD provided incredible insight into our cybersecurity needs. We feel much more secure after their audit.", author: "Priya Sharma", role: "IT Manager" }
   ];
 
   const industries = [
@@ -143,7 +143,7 @@ const Home = () => {
           />
         </motion.div>
 
-        <div className="container-custom relative z-10 px-6">
+        <div className="container-custom relative z-10 px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -163,7 +163,7 @@ const Home = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerTextContainer}
-              className="text-hero text-white mb-8"
+              className="text-hero text-white mb-6 md:mb-8"
             >
               {"Transforming Ideas into Digital Reality".split(" ").map((word, i) => (
                 <motion.span key={i} variants={staggerTextItem} className="inline-block mr-3">
@@ -175,7 +175,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-paragraph !text-gray-300 mb-12 !max-w-2xl"
+              className="text-paragraph !text-gray-300 mb-8 md:mb-12 !max-w-2xl"
             >
               Net-MD empowers forward-thinking businesses with expert IT consulting, scalable cloud infrastructure, and innovative digital strategies.
             </motion.p>
@@ -183,7 +183,7 @@ const Home = () => {
               <MagneticButton>
                 <Link
                   href="/services"
-                  className="btn-primary text-lg px-10 py-5 group shadow-xl shadow-primary-900/40 relative overflow-hidden"
+                  className="btn-primary text-base md:text-lg px-6 py-4 md:px-10 md:py-5 group shadow-xl shadow-primary-900/40 relative overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     Explore Services <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -193,7 +193,7 @@ const Home = () => {
               <MagneticButton>
                 <Link
                   href="/contact"
-                  className="btn-secondary !text-white !border-white/30 hover:!border-white hover:!bg-white/10 text-lg px-10 py-5 transition-all"
+                  className="btn-secondary !text-white !border-white/30 hover:!border-white hover:!bg-white/10 text-base md:text-lg px-6 py-4 md:px-10 md:py-5 transition-all"
                 >
                   Contact Us
                 </Link>
@@ -224,9 +224,9 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-secondary py-32 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.1),transparent_70%)] animate-pulse"></div>
-        <div className="container-custom grid grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+      <section className="bg-[#1a201c] py-16 md:py-32 px-4 md:px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.05),transparent_70%)] animate-pulse"></div>
+        <div className="container-custom grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4 md:gap-y-16 md:gap-x-8 lg:gap-12 relative z-10 max-w-5xl mx-auto">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
@@ -234,15 +234,21 @@ const Home = () => {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
-              className="text-center group will-change-transform"
+              className="text-center group will-change-transform flex flex-col items-center"
             >
-              <div className="text-stat-number text-white mb-4 transition-transform duration-500 group-hover:scale-110 will-change-transform">
-                <span className="text-primary-500">
+              <div className="w-16 h-16 md:w-24 md:h-24 bg-[#1e2920] rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center mb-4 md:mb-8 border border-white/5 group-hover:bg-primary-600/20 transition-colors duration-500 shadow-inner">
+                {i === 0 && <Award className="w-6 h-6 md:w-10 md:h-10 text-primary-500" strokeWidth={1.5} />}
+                {i === 1 && <Users className="w-6 h-6 md:w-10 md:h-10 text-primary-500" strokeWidth={1.5} />}
+                {i === 2 && <Globe className="w-6 h-6 md:w-10 md:h-10 text-primary-500" strokeWidth={1.5} />}
+                {i === 3 && <CheckCircle2 className="w-6 h-6 md:w-10 md:h-10 text-primary-500" strokeWidth={1.5} />}
+              </div>
+              <div className="text-4xl sm:text-5xl md:text-7xl lg:text-stat-number font-black text-white mb-2 md:mb-4 transition-transform duration-500 group-hover:scale-110 will-change-transform leading-none tracking-tighter">
+                <span className="text-white">
                   <CountUp value={stat.value} suffix={stat.suffix} />
                 </span>
               </div>
-              <div className="text-label !text-gray-400">{stat.label}</div>
-              <div className="w-12 h-1 bg-primary-600/30 mx-auto mt-6 transition-all duration-300 group-hover:w-24 group-hover:bg-primary-600"></div>
+              <div className="text-[9px] md:text-[11px] !text-gray-400 uppercase tracking-[0.15em] md:tracking-[0.2em] font-black mt-1 md:mt-2 text-center max-w-[100px] md:max-w-[120px]">{stat.label}</div>
+              <div className="w-8 md:w-12 h-1 bg-primary-600/30 mt-4 md:mt-6 transition-all duration-300 group-hover:w-16 md:group-hover:w-24 group-hover:bg-primary-600 rounded-full"></div>
             </motion.div>
           ))}
         </div>
@@ -250,7 +256,7 @@ const Home = () => {
 
       {/* Why Choose Us */}
       <Section className="bg-off-white overflow-hidden" id="why-us">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -290,7 +296,7 @@ const Home = () => {
             </motion.div>
           </motion.div>
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -315,7 +321,7 @@ const Home = () => {
               </motion.h2>
             </motion.div>
 
-            <div className="space-y-10">
+            <div className="space-y-8 md:space-y-10">
               {[
                 { icon: TrendingUp, title: "Data-Driven Approach", desc: "Every solution we build is backed by rigorous analysis and measurable performance metrics." },
                 { icon: Shield, title: "Uncompromising Security", desc: "We integrate enterprise-grade security protocols into every layer of your technology stack." },
@@ -327,7 +333,7 @@ const Home = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
-                  className="flex gap-8 group will-change-transform"
+                  className="flex gap-6 md:gap-8 group will-change-transform"
                 >
                   <div className="w-16 h-16 bg-white rounded-3xl shadow-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 border border-gray-100 shrink-0 group-hover:rotate-6 will-change-transform">
                     <item.icon size={28} />
@@ -345,7 +351,7 @@ const Home = () => {
 
       {/* Services Section */}
       <Section className="bg-white" id="services">
-        <div className="text-center mb-24 px-6">
+        <div className="text-center mb-12 md:mb-24 px-4 md:px-6">
           <motion.span 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -377,7 +383,7 @@ const Home = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 px-4 md:px-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -398,7 +404,7 @@ const Home = () => {
       {/* Process Section */}
       <Section className="bg-white" id="process">
         <div ref={processRef} className="container-custom mx-auto">
-          <div className="text-center mb-24 px-6">
+          <div className="text-center mb-12 md:mb-24 px-4 md:px-6">
             <span className="text-label mb-4 block">Our Workflow</span>
             <motion.h2
               initial="hidden"
@@ -415,7 +421,7 @@ const Home = () => {
             </motion.h2>
           </div>
 
-          <div className="relative px-6 max-w-6xl mx-auto">
+          <div className="relative px-4 md:px-6 max-w-6xl mx-auto">
             <div className="absolute top-12 left-0 w-full h-1 bg-gray-100 hidden lg:block overflow-hidden rounded-full z-0">
               <motion.div
                 style={{ scaleX: processProgress, originX: 0 }}
@@ -423,7 +429,7 @@ const Home = () => {
               />
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 relative z-10">
               {processSteps.map((step, i) => (
                 <motion.div
                   key={i}
@@ -433,7 +439,7 @@ const Home = () => {
                   transition={{ delay: i * 0.15, type: "spring" }}
                   className="text-center group will-change-transform"
                 >
-                  <div className="w-24 h-24 bg-white rounded-[2rem] shadow-xl border-4 border-gray-50 flex items-center justify-center text-3xl font-bold text-primary-600 mx-auto mb-10 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 group-hover:rotate-[12deg] group-hover:scale-110 will-change-transform">
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-[2rem] shadow-xl border-4 border-gray-50 flex items-center justify-center text-2xl md:text-3xl font-bold text-primary-600 mx-auto mb-6 md:mb-10 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 group-hover:rotate-[12deg] group-hover:scale-110 will-change-transform">
                     {i + 1}
                   </div>
                   <h3 className="text-card-title mb-5 group-hover:text-primary-600 transition-colors">{step.title}</h3>
@@ -455,7 +461,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="text-center mb-24 px-6 relative z-10">
+        <div className="text-center mb-12 md:mb-24 px-4 md:px-6 relative z-10">
           <span className="text-label !text-primary-400 mb-4 block">Sector Expertise</span>
           <motion.h2
             initial="hidden"
@@ -472,7 +478,7 @@ const Home = () => {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-6 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 px-4 md:px-6 relative z-10">
           {industries.map((industry, i) => (
             <motion.div
               key={i}
@@ -480,16 +486,16 @@ const Home = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-12 bg-white/5 rounded-[3rem] border border-white/10 text-center group hover:bg-white/10 transition-all duration-500 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] will-change-transform"
+              className="p-8 md:p-12 bg-white/5 rounded-[3rem] border border-white/10 text-center group hover:bg-white/10 transition-all duration-500 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] will-change-transform"
             >
               <motion.div 
                 whileHover={{ rotate: 12, scale: 1.15 }}
-                className="w-24 h-24 bg-primary-600/20 rounded-[2rem] flex items-center justify-center text-primary-400 mx-auto mb-10 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 shadow-xl will-change-transform"
+                className="w-20 h-20 md:w-24 md:h-24 bg-primary-600/20 rounded-[2rem] flex items-center justify-center text-primary-400 mx-auto mb-6 md:mb-10 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 shadow-xl will-change-transform"
               >
                 <industry.icon size={44} />
               </motion.div>
               <h3 className="text-2xl font-bold tracking-tight text-white">{industry.name}</h3>
-              <div className="w-12 h-1 bg-primary-600 mx-auto mt-8 opacity-0 group-hover:opacity-100 group-hover:w-20 transition-all duration-500"></div>
+              <div className="w-12 h-1 bg-primary-600 mx-auto mt-6 md:mt-8 opacity-0 group-hover:opacity-100 group-hover:w-20 transition-all duration-500"></div>
             </motion.div>
           ))}
         </div>
@@ -497,7 +503,7 @@ const Home = () => {
 
       {/* Testimonials */}
       <Section className="bg-white overflow-hidden" id="testimonials">
-        <div className="text-center mb-24 px-6">
+        <div className="text-center mb-12 md:mb-24 px-4 md:px-6">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -522,11 +528,11 @@ const Home = () => {
         </div>
 
         <div 
-          className="relative px-6 max-w-6xl mx-auto"
+          className="relative px-4 md:px-6 max-w-6xl mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="overflow-hidden min-h-[450px] relative">
+          <div className="overflow-hidden min-h-[350px] md:min-h-[450px] relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTestimonial}
@@ -536,7 +542,7 @@ const Home = () => {
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="w-full will-change-transform"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                   <TestimonialCard {...testimonials[activeTestimonial]} />
                   <div className="hidden md:block">
                     <TestimonialCard {...testimonials[(activeTestimonial + 1) % testimonials.length]} />
@@ -546,13 +552,13 @@ const Home = () => {
             </AnimatePresence>
           </div>
 
-          <div className="flex justify-between items-center mt-16">
+          <div className="flex justify-between items-center mt-10 md:mt-16">
             <div className="flex gap-3">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveTestimonial(i)}
-                  className={`h-2.5 rounded-full transition-all duration-500 ${activeTestimonial === i ? 'w-12 bg-primary-600 shadow-[0_0_10px_rgba(34,197,94,0.5)]' : 'w-2.5 bg-gray-200 hover:bg-gray-300'}`}
+                  className={`h-2 md:h-2.5 rounded-full transition-all duration-500 ${activeTestimonial === i ? 'w-8 md:w-12 bg-primary-600 shadow-[0_0_10px_rgba(34,197,94,0.5)]' : 'w-2 md:w-2.5 bg-gray-200 hover:bg-gray-300'}`}
                 />
               ))}
             </div>
@@ -560,7 +566,7 @@ const Home = () => {
               <MagneticButton>
                 <button
                   onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                  className="w-16 h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-secondary hover:bg-primary-600 hover:text-white transition-all shadow-xl active:scale-90"
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-secondary hover:bg-primary-600 hover:text-white transition-all shadow-xl active:scale-90"
                 >
                   <ChevronLeft size={28} />
                 </button>
@@ -568,7 +574,7 @@ const Home = () => {
               <MagneticButton>
                 <button
                   onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
-                  className="w-16 h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-secondary hover:bg-primary-600 hover:text-white transition-all shadow-xl active:scale-90"
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-secondary hover:bg-primary-600 hover:text-white transition-all shadow-xl active:scale-90"
                 >
                   <ChevronRight size={28} />
                 </button>
@@ -580,7 +586,7 @@ const Home = () => {
 
       {/* Blog Section */}
       <Section className="bg-off-white" id="blog">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 px-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24 gap-6 md:gap-8 px-4 md:px-6">
           <div>
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
@@ -607,14 +613,14 @@ const Home = () => {
           <MagneticButton>
             <Link 
               href="/blog" 
-              className="bg-white text-secondary px-8 py-4 rounded-2xl text-label flex items-center gap-3 hover:bg-primary-600 hover:text-white transition-all shadow-lg group"
+              className="bg-white text-secondary px-6 py-3 md:px-8 md:py-4 rounded-2xl text-label flex items-center gap-3 hover:bg-primary-600 hover:text-white transition-all shadow-lg group"
             >
               Explore Knowledge Base <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </MagneticButton>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 px-4 md:px-6">
           {blogs.slice(0, 3).map((blog, index) => (
             <motion.div
               key={index}
@@ -631,9 +637,9 @@ const Home = () => {
       </Section>
 
       {/* Technologies Section */}
-      <section className="py-24 bg-white px-6">
+      <section className="py-12 md:py-24 bg-white px-4 md:px-6">
         <div className="container-custom">
-          <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-24 opacity-60">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-24 opacity-60">
             {techLogos.map((tech, i) => (
               <motion.div
                 key={i}
@@ -649,7 +655,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-secondary py-40 relative overflow-hidden px-6">
+      <section className="bg-secondary py-20 md:py-40 relative overflow-hidden px-4 md:px-6">
         <motion.div 
           animate={{
             background: [
@@ -685,7 +691,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-paragraph !text-gray-400 mb-16 mx-auto"
+              className="text-paragraph !text-gray-400 mb-10 md:mb-16 mx-auto"
             >
               Join the ranks of high-performing companies that trust Net-MD for their mission-critical technology needs.
             </motion.p>
@@ -693,7 +699,7 @@ const Home = () => {
               <MagneticButton>
                 <Link 
                   href="/contact" 
-                  className="bg-primary-600 text-white px-16 py-7 rounded-3xl font-bold text-xl hover:bg-white hover:text-secondary transition-all duration-500 shadow-2xl shadow-primary-600/30 inline-flex items-center gap-4 relative overflow-hidden group"
+                  className="bg-primary-600 text-white px-8 py-4 md:px-16 md:py-7 rounded-3xl font-bold text-lg md:text-xl hover:bg-white hover:text-secondary transition-all duration-500 shadow-2xl shadow-primary-600/30 inline-flex items-center gap-4 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Start Your Journey Today</span>
                   <Rocket size={28} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />

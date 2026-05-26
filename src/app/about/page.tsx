@@ -63,8 +63,8 @@ const About = () => {
         html { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #16a34a; }
+        ::-webkit-scrollbar-thumb { background: #f6a18d; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e27a67; }
       `}</style>
 
       <AboutHero />
@@ -307,7 +307,7 @@ const About = () => {
                 <motion.div 
                   animate={{ x: ["-100%", "100%"] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className="w-full h-full bg-primary-600 shadow-[0_0_10px_#22c55e] will-change-transform"
+                  className="w-full h-full bg-primary-600 shadow-[0_0_10px_#f6a18d] will-change-transform"
                 />
               </div>
             </motion.div>

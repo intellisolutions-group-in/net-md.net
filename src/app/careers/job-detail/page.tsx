@@ -233,7 +233,7 @@ const JobDetailContent = () => {
               {/* Job Header */}
               <div className="flex justify-between items-start mb-12">
                 <div>
-                  <span className="bg-[#f0fdf4] text-[#16a34a] text-[10px] font-black tracking-widest uppercase px-4 py-2 rounded-lg mb-6 inline-block">
+                  <span className="bg-primary-100/50 text-primary-700 text-[10px] font-black tracking-widest uppercase px-4 py-2 rounded-lg mb-6 inline-block">
                     {job.type}
                   </span>
                   <h1 className="text-4xl md:text-5xl font-black text-secondary tracking-tighter mb-6">
@@ -269,7 +269,7 @@ const JobDetailContent = () => {
                   <div className="space-y-6">
                     {job.responsibilities.map((res: string, i: number) => (
                       <div key={i} className="flex items-start gap-4 group">
-                        <div className="mt-1.5 w-5 h-5 bg-[#f0fdf4] text-[#16a34a] rounded-full flex items-center justify-center shrink-0 border border-green-100">
+                        <div className="mt-1.5 w-5 h-5 bg-primary-100/50 text-primary-700 rounded-full flex items-center justify-center shrink-0 border border-primary-200">
                           <CheckCircle2 size={12} />
                         </div>
                         <p className="text-gray-600 text-lg">{res}</p>
@@ -283,7 +283,7 @@ const JobDetailContent = () => {
                   <div className="space-y-6">
                     {job.requiredSkills.map((skill: string, i: number) => (
                       <div key={i} className="flex items-start gap-4 group">
-                        <div className="mt-1.5 w-5 h-5 bg-[#f0fdf4] text-[#16a34a] rounded-full flex items-center justify-center shrink-0 border border-green-100">
+                        <div className="mt-1.5 w-5 h-5 bg-primary-100/50 text-primary-700 rounded-full flex items-center justify-center shrink-0 border border-primary-200">
                           <CheckCircle2 size={12} />
                         </div>
                         <p className="text-gray-600 text-lg">{skill}</p>
@@ -297,7 +297,7 @@ const JobDetailContent = () => {
                   <div className="space-y-6">
                     {job.preferredSkills.map((skill: string, i: number) => (
                       <div key={i} className="flex items-start gap-4 group">
-                        <div className="mt-1.5 w-5 h-5 bg-[#f0fdf4] text-[#16a34a] rounded-full flex items-center justify-center shrink-0 border border-green-100">
+                        <div className="mt-1.5 w-5 h-5 bg-primary-100/50 text-primary-700 rounded-full flex items-center justify-center shrink-0 border border-primary-200">
                           <CheckCircle2 size={12} />
                         </div>
                         <p className="text-gray-600 text-lg">{skill}</p>
@@ -322,7 +322,7 @@ const JobDetailContent = () => {
           <aside className="lg:col-span-4">
             <div className="sticky top-32 space-y-8">
               {/* Job Summary Card */}
-              <div className="bg-[#1a1a1a] p-10 rounded-[2rem] text-white shadow-2xl">
+              <div className="bg-secondary p-10 rounded-[2rem] text-white shadow-2xl">
                 <h3 className="text-2xl font-black mb-10 tracking-tight">Job Summary</h3>
                 <div className="space-y-10">
                   {[
@@ -351,14 +351,14 @@ const JobDetailContent = () => {
               </div>
 
               {/* Questions Card */}
-              <div className="bg-[#f0fdf4] p-10 rounded-[2rem] border border-green-100">
-                <h3 className="text-xl font-black text-[#166534] mb-4">Any Questions?</h3>
-                <p className="text-[#166534]/70 font-medium text-sm leading-relaxed mb-8">
+              <div className="bg-primary-50/50 p-10 rounded-[2rem] border border-primary-200/50">
+                <h3 className="text-xl font-black text-primary-800 mb-4">Any Questions?</h3>
+                <p className="text-primary-800/70 font-medium text-sm leading-relaxed mb-8">
                   If you have any questions regarding the recruitment process, feel free to reach out to our HR team.
                 </p>
                 <Link 
                   href="/contact" 
-                  className="inline-flex items-center gap-2 text-[#16a34a] font-black text-sm hover:gap-3 transition-all group"
+                  className="inline-flex items-center gap-2 text-primary-600 font-black text-sm hover:gap-3 transition-all group"
                 >
                   Contact HR <ArrowLeft className="rotate-180" size={16} />
                 </Link>

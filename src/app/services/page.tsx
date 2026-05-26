@@ -116,8 +116,8 @@ const Services = () => {
         html { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f8fafc; }
-        ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #16a34a; }
+        ::-webkit-scrollbar-thumb { background: #f6a18d; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e27a67; }
       `}</style>
 
       {/* Noise Texture Overlay */}

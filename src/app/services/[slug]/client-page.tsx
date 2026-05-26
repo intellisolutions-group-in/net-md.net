@@ -88,8 +88,8 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         html { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f8fafc; }
-        ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #16a34a; }
+        ::-webkit-scrollbar-thumb { background: #f6a18d; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e27a67; }
       `}</style>
 
       {/* Noise Texture Overlay */}
@@ -345,12 +345,12 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                   className="flex flex-col items-center text-center will-change-transform"
                 >
                   <motion.div
-                    initial={{ backgroundColor: "#ffffff", color: "#16a34a", scale: 1 }}
+                    initial={{ backgroundColor: "#ffffff", color: "#e27a67", scale: 1 }}
                     whileInView={{ 
-                      backgroundColor: ["#ffffff", "#16a34a", "#16a34a"],
-                      color: ["#16a34a", "#ffffff", "#ffffff"],
+                      backgroundColor: ["#ffffff", "#e27a67", "#e27a67"],
+                      color: ["#e27a67", "#ffffff", "#ffffff"],
                       scale: [1, 1.2, 1],
-                      boxShadow: ["0 0 0 rgba(0,0,0,0)", "0 20px 40px -10px rgba(22,163,74,0.4)", "0 20px 40px -10px rgba(22,163,74,0.2)"]
+                      boxShadow: ["0 0 0 rgba(0,0,0,0)", "0 20px 40px -10px rgba(246,161,141,0.4)", "0 20px 40px -10px rgba(246,161,141,0.2)"]
                     }}
                     viewport={{ once: false }}
                     transition={{ 
@@ -361,8 +361,8 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                     whileHover={{
                       scale: 1.15,
                       rotate: 12,
-                      backgroundColor: "#059669", // Darker green on hover
-                      boxShadow: "0 25px 50px -12px rgba(22,163,74,0.5)"
+                      backgroundColor: "#be5644", // Darker coral on hover
+                      boxShadow: "0 25px 50px -12px rgba(246,161,141,0.5)"
                     }}
                     className="w-24 h-24 rounded-[2rem] bg-white shadow-xl border-2 border-gray-100 flex items-center justify-center text-2xl font-bold text-primary-600 mb-6 relative z-10 cursor-default will-change-transform"
                   >

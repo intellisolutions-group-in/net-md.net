@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Zap, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 
@@ -47,17 +48,20 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="space-y-6 md:space-y-10"
           >
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center group">
               <motion.div 
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.8 }}
-                className="w-12 h-12 bg-primary-600 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-primary-600/30"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+                className="relative flex items-center"
               >
-                <Zap size={28} fill="currentColor" />
+                <Image
+                  src="/images/Logo-02.png"
+                  alt="Net-MD Logo"
+                  width={152}
+                  height={40}
+                  className="h-9 w-auto md:h-10 object-contain"
+                />
               </motion.div>
-              <span className="text-2xl font-bold tracking-tighter">
-                Net-<span className="text-primary-500">MD</span>
-              </span>
             </Link>
             <p className="text-card-description !text-gray-400">
               Architecting the digital future. We provide high-end consulting and innovative technology solutions for global market leaders.

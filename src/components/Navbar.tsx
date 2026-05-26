@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Zap, BarChart, Cloud, Code, Search, Globe, Layers, ChevronDown } from 'lucide-react';
@@ -63,16 +64,21 @@ export const Navbar = () => {
   return (
     <nav className={`fixed w-full z-[9999] transition-all duration-500 ${isDark ? 'bg-white/95 backdrop-blur-2xl py-3 md:py-4 shadow-[0_4px_40px_rgba(0,0,0,0.08)] border-b border-gray-100/80' : 'bg-transparent py-4 md:py-8'}`}>
       <div className="container-custom mx-auto px-4 md:px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center group">
           <motion.div
-            whileHover={{ rotate: 12, scale: 1.1 }}
-            className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center text-white shadow-xl transition-all duration-500 ${isDark ? 'bg-primary-600 shadow-primary-600/20' : 'bg-primary-500 shadow-primary-500/30'}`}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+            className="relative flex items-center"
           >
-            <Zap size={24} className="md:w-7 md:h-7" fill="currentColor" />
+            <Image
+              src={isDark ? "/images/Logo.png" : "/images/Logo-02.png"}
+              alt="Net-MD Logo"
+              width={136}
+              height={36}
+              className="h-auto w-auto md:h-15 object-contain"
+              priority
+            />
           </motion.div>
-          <span className={`text-xl md:text-2xl font-bold tracking-tighter transition-colors duration-500 ${isDark ? 'text-secondary' : 'text-white'}`}>
-            Net-<span className="text-primary-500">MD</span>
-          </span>
         </Link>
 
         {/* Desktop Menu */}

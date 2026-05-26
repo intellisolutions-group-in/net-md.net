@@ -44,11 +44,11 @@ export const Loader = () => {
       )}
     >
       {/* Background radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(246,161,141,0.05)_0%,transparent_50%)]" />
 
       <div className="relative z-10 flex flex-col items-center">
         {/* Logo Icon */}
-        <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-white shadow-[0_0_40px_rgba(16,185,129,0.3)] mb-8 animate-pulse">
+        <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-white shadow-[0_0_40px_rgba(246,161,141,0.3)] mb-8 animate-pulse">
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10">
             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
           </svg>
@@ -69,7 +69,7 @@ export const Loader = () => {
         {/* Progress Bar Container */}
         <div className="w-48 h-[2px] bg-white/5 rounded-full overflow-hidden">
           <div
-            className="h-full bg-primary transition-all duration-300 ease-out shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+            className="h-full bg-primary transition-all duration-300 ease-out shadow-[0_0_10px_rgba(246,161,141,0.5)]"
             style={{ width: `${progress}%` }}
           />
         </div>

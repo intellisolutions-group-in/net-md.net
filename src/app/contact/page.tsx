@@ -259,7 +259,7 @@ const Contact = () => {
               <div className="space-y-8 md:space-y-12">
                 {[
                   // { icon: MapPin, title: "Our Headquarters", text: "404, Cyber Heights, HITEC City, Hyderabad" },
-                  // { icon: Phone, title: "Give Us a Call", text: "+91 98765 43210" },
+                  { icon: Phone, title: "Give Us a Call", text: "+91 70415 50664" },
                   { icon: Mail, title: "Send an Email", text: "info@net-md.net" },
                   { icon: Clock, title: "Business Hours", text: "Mon - Fri: 10:00 AM - 7:00 PM" }
                 ].map((item, i) => (

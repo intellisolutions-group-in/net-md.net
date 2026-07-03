@@ -134,7 +134,8 @@ export const Footer = () => {
             <h4 className="text-label !text-primary-500 mb-6 md:mb-10">Connect</h4>
             <ul className="space-y-6 md:space-y-8">
               {[
-                { icon: Mail, text: "info@net-md.net" }
+                { icon: Mail, text: "info@net-md.net" },
+                { icon: Phone, text: "+91 70415 50664" }
               ].map((item, i) => (
                 <motion.li 
                   key={i}

@@ -163,7 +163,7 @@ export const Footer = () => {
           className="border-t border-white/5 pt-8 md:pt-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10 text-center md:text-left"
         >
           <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-[0.1em]">
-            © {currentYear} Net-MD Solutions. Crafted for the future.
+            © 2000-{currentYear} Net-MD Solutions. Crafted for the future.
           </p>
           <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-xs md:text-sm font-bold uppercase tracking-[0.1em]">
             {['Privacy', 'Legal', 'Governance'].map((text) => (

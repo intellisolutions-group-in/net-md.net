@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Zap, BarChart, Cloud, Code, Search, Globe, Layers, ChevronDown } from 'lucide-react';
+import { Facebook, Instagram } from '@/components/SocialIcons';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -196,12 +197,22 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button
-          className={`lg:hidden p-2 md:p-3 rounded-xl md:rounded-2xl transition-all duration-500 ${isDark ? 'bg-gray-100 text-secondary hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-md'}`}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} className="md:w-7 md:h-7" /> : <Menu size={24} className="md:w-7 md:h-7" />}
-        </button>
+        <div className="flex items-center gap-4 md:gap-6">
+          <div className="hidden lg:flex items-center gap-4 md:gap-5 border-r border-gray-200/20 pr-4 md:pr-6">
+            <a href="https://www.facebook.com/people/Net-MD/61591657355515/" target="_blank" rel="noopener noreferrer" className={`transition-all duration-300 hover:scale-110 ${isDark ? 'text-secondary/50 hover:text-primary-600' : 'text-white/50 hover:text-white'}`}>
+              <Facebook size={20} />
+            </a>
+            <a href="https://www.instagram.com/netmd_/?fbclid=IwY2xjawS7JbZleHRuA2FlbQIxMQBicmlkETJLRTlYazVYb3dJanV1bXFBc3J0YwZhcHBfaWQBMAABHrsm_ZIADAWI3Hm1lNT-EiqEeRbHYi0FHPKjch_27Bt2qHa2m8G0E7h9a8HX_aem_qTntnCs3A12fnGRIIXPd4A" target="_blank" rel="noopener noreferrer" className={`transition-all duration-300 hover:scale-110 ${isDark ? 'text-secondary/50 hover:text-primary-600' : 'text-white/50 hover:text-white'}`}>
+              <Instagram size={20} />
+            </a>
+          </div>
+          <button
+            className={`lg:hidden p-2 md:p-3 rounded-xl md:rounded-2xl transition-all duration-500 ${isDark ? 'bg-gray-100 text-secondary hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-md'}`}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} className="md:w-7 md:h-7" /> : <Menu size={24} className="md:w-7 md:h-7" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -275,6 +286,15 @@ export const Navbar = () => {
                   </Link>
                 );
               })}
+              
+              <div className="flex items-center gap-6 mt-4 pt-8 border-t border-gray-100">
+                <a href="https://www.facebook.com/people/Net-MD/61591657355515/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300">
+                  <Facebook size={24} />
+                </a>
+                <a href="https://www.instagram.com/netmd_/?fbclid=IwY2xjawS7JbZleHRuA2FlbQIxMQBicmlkETJLRTlYazVYb3dJanV1bXFBc3J0YwZhcHBfaWQBMAABHrsm_ZIADAWI3Hm1lNT-EiqEeRbHYi0FHPKjch_27Bt2qHa2m8G0E7h9a8HX_aem_qTntnCs3A12fnGRIIXPd4A" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300">
+                  <Instagram size={24} />
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

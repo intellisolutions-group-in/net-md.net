@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Zap, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Facebook, Instagram } from '@/components/SocialIcons';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -166,13 +167,26 @@ export const Footer = () => {
           <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-[0.1em]">
             © 2000-{currentYear} Net-MD Solutions. Crafted for the future.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-xs md:text-sm font-bold uppercase tracking-[0.1em]">
-            {['Privacy', 'Legal', 'Governance'].map((text) => (
-              <Link key={text} href={`/${text.toLowerCase()}`} className="text-gray-500 hover:text-primary-500 transition-colors relative group">
-                {text}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary-500 group-hover:w-full transition-all duration-300" />
-              </Link>
-            ))}
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-xs md:text-sm font-bold uppercase tracking-[0.1em]">
+              {['Privacy', 'Legal', 'Governance'].map((text) => (
+                <Link key={text} href={`/${text.toLowerCase()}`} className="text-gray-500 hover:text-primary-500 transition-colors relative group">
+                  {text}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary-500 group-hover:w-full transition-all duration-300" />
+                </Link>
+              ))}
+            </div>
+            
+            <div className="hidden md:block w-px h-4 bg-white/10" />
+            
+            <div className="flex items-center gap-5">
+              <a href="https://www.facebook.com/people/Net-MD/61591657355515/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary-500 transition-all duration-300 hover:scale-110">
+                <Facebook size={18} />
+              </a>
+              <a href="https://www.instagram.com/netmd_/?fbclid=IwY2xjawS7JbZleHRuA2FlbQIxMQBicmlkETJLRTlYazVYb3dJanV1bXFBc3J0YwZhcHBfaWQBMAABHrsm_ZIADAWI3Hm1lNT-EiqEeRbHYi0FHPKjch_27Bt2qHa2m8G0E7h9a8HX_aem_qTntnCs3A12fnGRIIXPd4A" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary-500 transition-all duration-300 hover:scale-110">
+                <Instagram size={18} />
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -3,6 +3,7 @@
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Section, MagneticButtonWrapper as MagneticButton } from '@/components/Cards';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle2, Loader2 } from 'lucide-react';
+import { Facebook, Instagram } from '@/components/SocialIcons';
 import { useState, useRef } from 'react';
 
 // --- Internal Helper Components ---
@@ -283,6 +284,18 @@ const Contact = () => {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+
+              <div className="mt-12 md:mt-16 pt-8 md:pt-10 border-t border-white/10 flex items-center justify-between">
+                <h4 className="font-black text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-400/70">Connect Socially</h4>
+                <div className="flex items-center gap-3">
+                  <a href="https://www.facebook.com/people/Net-MD/61591657355515/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 bg-white/5 border border-white/10 text-white rounded-lg md:rounded-xl flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                    <Facebook size={18} className="md:w-5 md:h-5" />
+                  </a>
+                  <a href="https://www.instagram.com/netmd_/?fbclid=IwY2xjawS7JbZleHRuA2FlbQIxMQBicmlkETJLRTlYazVYb3dJanV1bXFBc3J0YwZhcHBfaWQBMAABHrsm_ZIADAWI3Hm1lNT-EiqEeRbHYi0FHPKjch_27Bt2qHa2m8G0E7h9a8HX_aem_qTntnCs3A12fnGRIIXPd4A" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 bg-white/5 border border-white/10 text-white rounded-lg md:rounded-xl flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                    <Instagram size={18} className="md:w-5 md:h-5" />
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
